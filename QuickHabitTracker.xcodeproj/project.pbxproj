@@ -7,6 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D0B4A892BF114C000CC1CB7 /* TrackedHabitsByDate+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0B4A852BF114C000CC1CB7 /* TrackedHabitsByDate+CoreDataClass.swift */; };
+		0D0B4A8A2BF114C000CC1CB7 /* TrackedHabitsByDate+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0B4A862BF114C000CC1CB7 /* TrackedHabitsByDate+CoreDataProperties.swift */; };
+		0D0B4A8F2BF1389A00CC1CB7 /* Habit+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0B4A8D2BF1389A00CC1CB7 /* Habit+CoreDataClass.swift */; };
+		0D0B4A902BF1389A00CC1CB7 /* Habit+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0B4A8E2BF1389A00CC1CB7 /* Habit+CoreDataProperties.swift */; };
+		0D50A2492BF35A6A007CA46D /* HabitlistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D50A2482BF35A6A007CA46D /* HabitlistView.swift */; };
+		0D50A24B2BF370E9007CA46D /* fetchBydateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D50A24A2BF370E9007CA46D /* fetchBydateView.swift */; };
+		0D66AD732BE2B5B2002AD8B0 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D66AD722BE2B5B2002AD8B0 /* CoreDataHelper.swift */; };
+		0D77714C2BEB6FCC00415574 /* DayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D77714B2BEB6FCC00415574 /* DayView.swift */; };
+		0D9A92722BE2AF2A00E066F9 /* model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0D9A92702BE2AF2A00E066F9 /* model.xcdatamodeld */; };
+		0DA74FFB2BE6339A0009B1DF /* CreateHabitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA74FFA2BE6339A0009B1DF /* CreateHabitView.swift */; };
+		0DA74FFD2BE76FBF0009B1DF /* MontlyHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA74FFC2BE76FBF0009B1DF /* MontlyHistoryView.swift */; };
+		0DA74FFF2BE76FCC0009B1DF /* DailyHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA74FFE2BE76FCC0009B1DF /* DailyHistoryView.swift */; };
+		0DBC9D702BDEBCF10018C39B /* SharedUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBC9D6F2BDEBCF10018C39B /* SharedUserDefaults.swift */; };
+		0DBC9D712BDEBCF10018C39B /* SharedUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBC9D6F2BDEBCF10018C39B /* SharedUserDefaults.swift */; };
+		0DBC9D722BDEC4360018C39B /* ChangeHabitStatusIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3FCAD32BDE4DDA004FDD0D /* ChangeHabitStatusIntent.swift */; };
+		0DBC9D732BDEC5390018C39B /* ChangeHabitStatusIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3FCAD32BDE4DDA004FDD0D /* ChangeHabitStatusIntent.swift */; };
 		0DF496A12BD977DA00AF0590 /* QuickHabitTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF496A02BD977DA00AF0590 /* QuickHabitTrackerApp.swift */; };
 		0DF496A32BD977DA00AF0590 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF496A22BD977DA00AF0590 /* ContentView.swift */; };
 		0DF496A52BD977DE00AF0590 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DF496A42BD977DE00AF0590 /* Assets.xcassets */; };
@@ -44,6 +60,21 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0D0B4A852BF114C000CC1CB7 /* TrackedHabitsByDate+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TrackedHabitsByDate+CoreDataClass.swift"; sourceTree = "<group>"; };
+		0D0B4A862BF114C000CC1CB7 /* TrackedHabitsByDate+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TrackedHabitsByDate+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		0D0B4A8D2BF1389A00CC1CB7 /* Habit+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Habit+CoreDataClass.swift"; sourceTree = "<group>"; };
+		0D0B4A8E2BF1389A00CC1CB7 /* Habit+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Habit+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		0D3FCAD32BDE4DDA004FDD0D /* ChangeHabitStatusIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeHabitStatusIntent.swift; sourceTree = "<group>"; };
+		0D50A2482BF35A6A007CA46D /* HabitlistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitlistView.swift; sourceTree = "<group>"; };
+		0D50A24A2BF370E9007CA46D /* fetchBydateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fetchBydateView.swift; sourceTree = "<group>"; };
+		0D66AD722BE2B5B2002AD8B0 /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
+		0D77714B2BEB6FCC00415574 /* DayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayView.swift; sourceTree = "<group>"; };
+		0D9A92712BE2AF2A00E066F9 /* model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = model.xcdatamodel; sourceTree = "<group>"; };
+		0DA74FFA2BE6339A0009B1DF /* CreateHabitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateHabitView.swift; sourceTree = "<group>"; };
+		0DA74FFC2BE76FBF0009B1DF /* MontlyHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MontlyHistoryView.swift; sourceTree = "<group>"; };
+		0DA74FFE2BE76FCC0009B1DF /* DailyHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyHistoryView.swift; sourceTree = "<group>"; };
+		0DBC9D6F2BDEBCF10018C39B /* SharedUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedUserDefaults.swift; sourceTree = "<group>"; };
+		0DD857702BE1017400CCF808 /* notes.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = notes.md; sourceTree = "<group>"; };
 		0DF4969D2BD977DA00AF0590 /* QuickHabitTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuickHabitTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DF496A02BD977DA00AF0590 /* QuickHabitTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickHabitTrackerApp.swift; sourceTree = "<group>"; };
 		0DF496A22BD977DA00AF0590 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -78,9 +109,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D66AD612BE2B215002AD8B0 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				0D9A92702BE2AF2A00E066F9 /* model.xcdatamodeld */,
+				0D0B4A852BF114C000CC1CB7 /* TrackedHabitsByDate+CoreDataClass.swift */,
+				0D0B4A862BF114C000CC1CB7 /* TrackedHabitsByDate+CoreDataProperties.swift */,
+				0D0B4A8E2BF1389A00CC1CB7 /* Habit+CoreDataProperties.swift */,
+				0D0B4A8D2BF1389A00CC1CB7 /* Habit+CoreDataClass.swift */,
+				0D66AD722BE2B5B2002AD8B0 /* CoreDataHelper.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		0DF496942BD977DA00AF0590 = {
 			isa = PBXGroup;
 			children = (
+				0DD857702BE1017400CCF808 /* notes.md */,
+				0DBC9D6F2BDEBCF10018C39B /* SharedUserDefaults.swift */,
+				0D3FCAD32BDE4DDA004FDD0D /* ChangeHabitStatusIntent.swift */,
 				0DF4969F2BD977DA00AF0590 /* QuickHabitTracker */,
 				0DF496B82BD9781B00AF0590 /* QuickHabitTrackerWidget */,
 				0DF496B32BD9781B00AF0590 /* Frameworks */,
@@ -100,8 +147,15 @@
 		0DF4969F2BD977DA00AF0590 /* QuickHabitTracker */ = {
 			isa = PBXGroup;
 			children = (
+				0D66AD612BE2B215002AD8B0 /* CoreData */,
 				0DF496A02BD977DA00AF0590 /* QuickHabitTrackerApp.swift */,
 				0DF496A22BD977DA00AF0590 /* ContentView.swift */,
+				0DA74FFC2BE76FBF0009B1DF /* MontlyHistoryView.swift */,
+				0DA74FFE2BE76FCC0009B1DF /* DailyHistoryView.swift */,
+				0D77714B2BEB6FCC00415574 /* DayView.swift */,
+				0DA74FFA2BE6339A0009B1DF /* CreateHabitView.swift */,
+				0D50A2482BF35A6A007CA46D /* HabitlistView.swift */,
+				0D50A24A2BF370E9007CA46D /* fetchBydateView.swift */,
 				0DF496A42BD977DE00AF0590 /* Assets.xcassets */,
 				0DF496A62BD977DE00AF0590 /* Preview Content */,
 			);
@@ -237,8 +291,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D66AD732BE2B5B2002AD8B0 /* CoreDataHelper.swift in Sources */,
+				0DBC9D732BDEC5390018C39B /* ChangeHabitStatusIntent.swift in Sources */,
+				0DA74FFD2BE76FBF0009B1DF /* MontlyHistoryView.swift in Sources */,
+				0DA74FFB2BE6339A0009B1DF /* CreateHabitView.swift in Sources */,
+				0D50A2492BF35A6A007CA46D /* HabitlistView.swift in Sources */,
+				0DBC9D702BDEBCF10018C39B /* SharedUserDefaults.swift in Sources */,
+				0D9A92722BE2AF2A00E066F9 /* model.xcdatamodeld in Sources */,
 				0DF496A32BD977DA00AF0590 /* ContentView.swift in Sources */,
+				0D77714C2BEB6FCC00415574 /* DayView.swift in Sources */,
+				0DA74FFF2BE76FCC0009B1DF /* DailyHistoryView.swift in Sources */,
 				0DF496A12BD977DA00AF0590 /* QuickHabitTrackerApp.swift in Sources */,
+				0D0B4A8F2BF1389A00CC1CB7 /* Habit+CoreDataClass.swift in Sources */,
+				0D0B4A902BF1389A00CC1CB7 /* Habit+CoreDataProperties.swift in Sources */,
+				0D0B4A892BF114C000CC1CB7 /* TrackedHabitsByDate+CoreDataClass.swift in Sources */,
+				0D50A24B2BF370E9007CA46D /* fetchBydateView.swift in Sources */,
+				0D0B4A8A2BF114C000CC1CB7 /* TrackedHabitsByDate+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,7 +314,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DBC9D722BDEC4360018C39B /* ChangeHabitStatusIntent.swift in Sources */,
 				0DF496BA2BD9781B00AF0590 /* QuickHabitTrackerWidgetBundle.swift in Sources */,
+				0DBC9D712BDEBCF10018C39B /* SharedUserDefaults.swift in Sources */,
 				0DF496BC2BD9781B00AF0590 /* QuickHabitTrackerWidget.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -387,6 +457,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = QuickHabitTracker/QuickHabitTracker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"QuickHabitTracker/Preview Content\"";
@@ -421,6 +492,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = QuickHabitTracker/QuickHabitTracker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"QuickHabitTracker/Preview Content\"";
@@ -454,6 +526,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = QuickHabitTrackerWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = W7UF2SN6YX;
@@ -485,6 +558,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = QuickHabitTrackerWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = W7UF2SN6YX;
@@ -542,6 +616,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		0D9A92702BE2AF2A00E066F9 /* model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0D9A92712BE2AF2A00E066F9 /* model.xcdatamodel */,
+			);
+			currentVersion = 0D9A92712BE2AF2A00E066F9 /* model.xcdatamodel */;
+			path = model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 0DF496952BD977DA00AF0590 /* Project object */;
 }

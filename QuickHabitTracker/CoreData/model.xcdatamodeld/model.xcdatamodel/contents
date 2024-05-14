@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22757" systemVersion="23B81" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+    <entity name="Habit" representedClassName="Habit" syncable="YES">
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="isRepeatedOnFri" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isRepeatedOnMon" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isRepeatedOnSat" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isRepeatedOnSun" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isRepeatedOnThu" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isRepeatedOnTue" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isRepeatedOnWed" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="name" attributeType="String"/>
+    </entity>
+    <entity name="TrackedHabitsByDate" representedClassName="TrackedHabitsByDate" syncable="YES">
+        <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="doneHabits" optional="YES" attributeType="Transformable"/>
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="notDoneHabits" optional="YES" attributeType="Transformable"/>
+    </entity>
+</model>
