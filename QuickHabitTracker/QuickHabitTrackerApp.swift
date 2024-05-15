@@ -15,7 +15,7 @@ struct QuickHabitTrackerApp: App {
         WindowGroup {
             ContentView()
                 //.defaultAppStorage(UserDefaults(suiteName: "group.com.devNoyan.QuickHabitTracker")!)
-                .environment(\.managedObjectContext, coreDataHelper.persistentContainer.viewContext)
+              .environment(\.managedObjectContext, coreDataHelper.persistentContainer.viewContext)
         }
     
     }

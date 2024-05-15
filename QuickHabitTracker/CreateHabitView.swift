@@ -22,7 +22,6 @@ struct CreateHabitView: View {
     @State private var isRepeatedonSat: Bool = false
     
 
-    
     var body: some View {
         VStack(spacing: 20) {
             TextField("Habit Name", text: $habitName)

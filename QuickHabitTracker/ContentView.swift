@@ -18,17 +18,29 @@ struct ContentView: View {
     @AppStorage("firstHabitStatus", store: UserDefaults(suiteName: "group.com.devNoyan.QuickHabitTracker")) var firstHabitStatus: Bool = false
     @State private var habitStatus: Bool = false
     @State private var showCreateHabitView: Bool = false
+    
+    @State private var habits: [Habit] = []
+    
+    @Environment(\.managedObjectContext) var context
 
     var body: some View {
         NavigationStack {
             VStack {
                 
-                NavigationLink(destination: CreateHabitView()) {
-                    Text("Create Habit")
-                }
+                
+                    List {
+                        if habits.isEmpty{
+                            Text("No Habits to do")
+                        } else {
+                            ForEach(habits) { habit in
+                                Text(habit.name)
+                            }
+                        }
+                    }
+                
                 
                 NavigationLink(destination: fetchBydateView()) {
-                    Text("Sunday Habits")
+                    Text("Test")
                 }
                 
                 
@@ -36,11 +48,15 @@ struct ContentView: View {
                     Text("Monthly History")
                 }
                 
+                //THIS PART IS FOR WIDGET STUFF
+                /*
                 Button("Toggle") {
                     firstHabitStatus.toggle()
                     WidgetCenter.shared.reloadAllTimelines()
                     habitStatus = getHabitStatus()
                 }
+                 */
+                
                 
                 NavigationLink {
                     HabitlistView()
@@ -54,6 +70,9 @@ struct ContentView: View {
                
                 Divider()
             }
+            .onAppear{
+                fetchTodaysHabits()
+            }
            
             .onChange(of: firstHabitStatus) { _ in
                 habitStatus = getHabitStatus()
@@ -62,7 +81,12 @@ struct ContentView: View {
                 habitStatus = getHabitStatus()
             }
             .padding()
+            
+            .onReceive(NotificationCenter.default.publisher(for: .NSManagedObjectContextDidSave, object: context)) { _ in
+                fetchTodaysHabits()
+            }
             .toolbar {
+                
                 
                 ToolbarItem(placement: .navigationBarLeading) {
                         Text("Quick Habit Tracker")
@@ -99,6 +123,33 @@ struct ContentView: View {
             return false
         }
     }
+    
+    func fetchTodaysHabits() {
+        let calendar = Calendar.current
+          let todayComponents = calendar.dateComponents([.day, .month, .year], from: Date())
+
+          guard let day = todayComponents.day,
+                let month = todayComponents.month,
+                let year = todayComponents.year else {
+            print("Error: Could not extract date components.")
+            return // Handle the error gracefully (e.g., display a user-friendly message)
+          }
+        
+        if let request = fetchRequest(day: day, month: month, year: year, context: context) {
+            do {
+                habits = try context.fetch(request)
+                // Use the fetched habits here
+                print("Fetched habits: \(habits.count)") // Example usage
+            } catch {
+                print("Error fetching data: \(error)")
+            }
+        } else {
+            print("bad request")
+        }
+    }
+    
+    
+   
 }
 
 struct ContentView_Previews: PreviewProvider {

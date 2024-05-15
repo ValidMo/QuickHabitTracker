@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0D0B4A892BF114C000CC1CB7 /* TrackedHabitsByDate+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0B4A852BF114C000CC1CB7 /* TrackedHabitsByDate+CoreDataClass.swift */; };
-		0D0B4A8A2BF114C000CC1CB7 /* TrackedHabitsByDate+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0B4A862BF114C000CC1CB7 /* TrackedHabitsByDate+CoreDataProperties.swift */; };
 		0D0B4A8F2BF1389A00CC1CB7 /* Habit+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0B4A8D2BF1389A00CC1CB7 /* Habit+CoreDataClass.swift */; };
 		0D0B4A902BF1389A00CC1CB7 /* Habit+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0B4A8E2BF1389A00CC1CB7 /* Habit+CoreDataProperties.swift */; };
 		0D50A2492BF35A6A007CA46D /* HabitlistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D50A2482BF35A6A007CA46D /* HabitlistView.swift */; };
@@ -60,8 +58,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0D0B4A852BF114C000CC1CB7 /* TrackedHabitsByDate+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TrackedHabitsByDate+CoreDataClass.swift"; sourceTree = "<group>"; };
-		0D0B4A862BF114C000CC1CB7 /* TrackedHabitsByDate+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TrackedHabitsByDate+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		0D0B4A8D2BF1389A00CC1CB7 /* Habit+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Habit+CoreDataClass.swift"; sourceTree = "<group>"; };
 		0D0B4A8E2BF1389A00CC1CB7 /* Habit+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Habit+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		0D3FCAD32BDE4DDA004FDD0D /* ChangeHabitStatusIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeHabitStatusIntent.swift; sourceTree = "<group>"; };
@@ -113,8 +109,6 @@
 			isa = PBXGroup;
 			children = (
 				0D9A92702BE2AF2A00E066F9 /* model.xcdatamodeld */,
-				0D0B4A852BF114C000CC1CB7 /* TrackedHabitsByDate+CoreDataClass.swift */,
-				0D0B4A862BF114C000CC1CB7 /* TrackedHabitsByDate+CoreDataProperties.swift */,
 				0D0B4A8E2BF1389A00CC1CB7 /* Habit+CoreDataProperties.swift */,
 				0D0B4A8D2BF1389A00CC1CB7 /* Habit+CoreDataClass.swift */,
 				0D66AD722BE2B5B2002AD8B0 /* CoreDataHelper.swift */,
@@ -304,9 +298,7 @@
 				0DF496A12BD977DA00AF0590 /* QuickHabitTrackerApp.swift in Sources */,
 				0D0B4A8F2BF1389A00CC1CB7 /* Habit+CoreDataClass.swift in Sources */,
 				0D0B4A902BF1389A00CC1CB7 /* Habit+CoreDataProperties.swift in Sources */,
-				0D0B4A892BF114C000CC1CB7 /* TrackedHabitsByDate+CoreDataClass.swift in Sources */,
 				0D50A24B2BF370E9007CA46D /* fetchBydateView.swift in Sources */,
-				0D0B4A8A2BF114C000CC1CB7 /* TrackedHabitsByDate+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
