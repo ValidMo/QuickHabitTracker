@@ -19,6 +19,10 @@ struct DayView: View {
     @State private var habits: [Habit] = []
     
     var body: some View {
+        
+        Button("Track Day"){
+            TrackHabit()
+        }
             List {
                 habitsList
             }
@@ -45,6 +49,31 @@ struct DayView: View {
             ForEach(habits, id: \.self) { habit in
                 Text(habit.name) // Assuming 'name' is the property you want to display
             }
+        }
+    }
+    
+    func TrackHabit() {
+        let dayRecord = TrackedHabitsByDate(context: context)
+        
+        let calendar = Calendar.current
+        var dateComponents = DateComponents()
+        dateComponents.day = day
+        dateComponents.month = month
+        dateComponents.year = year
+        
+        guard let date = calendar.date(from: dateComponents) else {
+            print("Could not make date from DateComponents")
+            return
+        }
+        
+        dayRecord.date = date
+        dayRecord.allHabits = ["run", "drive"]
+        dayRecord.doneHabits = ["bike"]
+        
+        do {
+            try dayRecord.managedObjectContext?.save()
+        } catch let error {
+            print("Error saving context: \(error.localizedDescription)")
         }
     }
 }
@@ -111,6 +140,7 @@ struct DayView: View {
             return nil // Should never happen, but return nil to handle unexpected cases
         }
     }
+
 
 
 

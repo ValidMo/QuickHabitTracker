@@ -25,6 +25,10 @@ struct fetchBydateView: View {
             }
              */
             
+            Button("Track Habit"){
+                
+            }
+            
             List {
                 if habits.isEmpty{
                     Text("No Habits to do")

@@ -105,8 +105,8 @@ func updateDay(_ day: Day, with habits: [Habit]) {
 
 ---
 
-first of all i should calculate which weekday from the date in TrackedHabitsByDate okay
-then according to the weekday i should fetch the habits where the isRepeated<WEEKDAY> is true okay
+first of all i should calculate which weekday from the date in TrackedHabitsByDate ✅
+then according to the weekday i should fetch the habits where the isRepeated<WEEKDAY> is true ✅
 then i should put the results to the notDoneHabits array(just the name of habits as array of string) challenge
 then i should list the habits in notDoneHabits as buttons okay
 when the buttons pressed the notDoneHabits goes to doneHabits and the appeariance changes okay
