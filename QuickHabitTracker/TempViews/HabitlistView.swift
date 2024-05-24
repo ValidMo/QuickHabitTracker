@@ -23,9 +23,10 @@ struct HabitlistView: View {
                 
                 if let allHabits = habit.allHabits as? [String],let date = habit.date  { // Assuming allHabits is an array of strings
                     ForEach(allHabits, id: \.self) { habitName in
-                       
+                        HStack{
                             Text(habitName)
-                        Text(dateFormatter.string(from: date))
+                            Text(dateFormatter.string(from: date))
+                        }
                             
                         
                     }

@@ -11,16 +11,19 @@
 		0D0B4A902BF1389A00CC1CB7 /* Habit+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0B4A8E2BF1389A00CC1CB7 /* Habit+CoreDataProperties.swift */; };
 		0D50A2492BF35A6A007CA46D /* HabitlistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D50A2482BF35A6A007CA46D /* HabitlistView.swift */; };
 		0D50A24B2BF370E9007CA46D /* fetchBydateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D50A24A2BF370E9007CA46D /* fetchBydateView.swift */; };
+		0D60E2FC2BF5F2E1009D8614 /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D60E2FB2BF5F2E1009D8614 /* HelperFunctions.swift */; };
+		0D60E2FF2BF6646D009D8614 /* UITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D60E2FE2BF6646D009D8614 /* UITest.swift */; };
 		0D66AD732BE2B5B2002AD8B0 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D66AD722BE2B5B2002AD8B0 /* CoreDataHelper.swift */; };
-		0D77714C2BEB6FCC00415574 /* DayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D77714B2BEB6FCC00415574 /* DayView.swift */; };
+		0D77714C2BEB6FCC00415574 /* DayRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D77714B2BEB6FCC00415574 /* DayRecordView.swift */; };
 		0D9A92722BE2AF2A00E066F9 /* model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0D9A92702BE2AF2A00E066F9 /* model.xcdatamodeld */; };
 		0DA74FFB2BE6339A0009B1DF /* CreateHabitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA74FFA2BE6339A0009B1DF /* CreateHabitView.swift */; };
-		0DA74FFD2BE76FBF0009B1DF /* MontlyHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA74FFC2BE76FBF0009B1DF /* MontlyHistoryView.swift */; };
-		0DA74FFF2BE76FCC0009B1DF /* DailyHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA74FFE2BE76FCC0009B1DF /* DailyHistoryView.swift */; };
+		0DA74FFD2BE76FBF0009B1DF /* MonthsOfYearView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA74FFC2BE76FBF0009B1DF /* MonthsOfYearView.swift */; };
+		0DA74FFF2BE76FCC0009B1DF /* DaysOfMonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA74FFE2BE76FCC0009B1DF /* DaysOfMonthView.swift */; };
 		0DBC9D702BDEBCF10018C39B /* SharedUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBC9D6F2BDEBCF10018C39B /* SharedUserDefaults.swift */; };
 		0DBC9D712BDEBCF10018C39B /* SharedUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBC9D6F2BDEBCF10018C39B /* SharedUserDefaults.swift */; };
 		0DBC9D722BDEC4360018C39B /* ChangeHabitStatusIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3FCAD32BDE4DDA004FDD0D /* ChangeHabitStatusIntent.swift */; };
 		0DBC9D732BDEC5390018C39B /* ChangeHabitStatusIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3FCAD32BDE4DDA004FDD0D /* ChangeHabitStatusIntent.swift */; };
+		0DEDC2D32C008D510029C637 /* ActiveHabitsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DEDC2D22C008D510029C637 /* ActiveHabitsView.swift */; };
 		0DF496A12BD977DA00AF0590 /* QuickHabitTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF496A02BD977DA00AF0590 /* QuickHabitTrackerApp.swift */; };
 		0DF496A32BD977DA00AF0590 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF496A22BD977DA00AF0590 /* ContentView.swift */; };
 		0DF496A52BD977DE00AF0590 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DF496A42BD977DE00AF0590 /* Assets.xcassets */; };
@@ -65,14 +68,17 @@
 		0D3FCAD32BDE4DDA004FDD0D /* ChangeHabitStatusIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeHabitStatusIntent.swift; sourceTree = "<group>"; };
 		0D50A2482BF35A6A007CA46D /* HabitlistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitlistView.swift; sourceTree = "<group>"; };
 		0D50A24A2BF370E9007CA46D /* fetchBydateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fetchBydateView.swift; sourceTree = "<group>"; };
+		0D60E2FB2BF5F2E1009D8614 /* HelperFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperFunctions.swift; sourceTree = "<group>"; };
+		0D60E2FE2BF6646D009D8614 /* UITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITest.swift; sourceTree = "<group>"; };
 		0D66AD722BE2B5B2002AD8B0 /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
-		0D77714B2BEB6FCC00415574 /* DayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayView.swift; sourceTree = "<group>"; };
+		0D77714B2BEB6FCC00415574 /* DayRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayRecordView.swift; sourceTree = "<group>"; };
 		0D9A92712BE2AF2A00E066F9 /* model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = model.xcdatamodel; sourceTree = "<group>"; };
 		0DA74FFA2BE6339A0009B1DF /* CreateHabitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateHabitView.swift; sourceTree = "<group>"; };
-		0DA74FFC2BE76FBF0009B1DF /* MontlyHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MontlyHistoryView.swift; sourceTree = "<group>"; };
-		0DA74FFE2BE76FCC0009B1DF /* DailyHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyHistoryView.swift; sourceTree = "<group>"; };
+		0DA74FFC2BE76FBF0009B1DF /* MonthsOfYearView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthsOfYearView.swift; sourceTree = "<group>"; };
+		0DA74FFE2BE76FCC0009B1DF /* DaysOfMonthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysOfMonthView.swift; sourceTree = "<group>"; };
 		0DBC9D6F2BDEBCF10018C39B /* SharedUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedUserDefaults.swift; sourceTree = "<group>"; };
 		0DD857702BE1017400CCF808 /* notes.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = notes.md; sourceTree = "<group>"; };
+		0DEDC2D22C008D510029C637 /* ActiveHabitsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveHabitsView.swift; sourceTree = "<group>"; };
 		0DF4969D2BD977DA00AF0590 /* QuickHabitTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuickHabitTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DF496A02BD977DA00AF0590 /* QuickHabitTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickHabitTrackerApp.swift; sourceTree = "<group>"; };
 		0DF496A22BD977DA00AF0590 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -109,6 +115,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D60E2FD2BF5F4A8009D8614 /* TempViews */ = {
+			isa = PBXGroup;
+			children = (
+				0D50A24A2BF370E9007CA46D /* fetchBydateView.swift */,
+				0D50A2482BF35A6A007CA46D /* HabitlistView.swift */,
+				0D60E2FE2BF6646D009D8614 /* UITest.swift */,
+			);
+			path = TempViews;
+			sourceTree = "<group>";
+		};
 		0D66AD612BE2B215002AD8B0 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
@@ -128,6 +144,7 @@
 				0DD857702BE1017400CCF808 /* notes.md */,
 				0DBC9D6F2BDEBCF10018C39B /* SharedUserDefaults.swift */,
 				0D3FCAD32BDE4DDA004FDD0D /* ChangeHabitStatusIntent.swift */,
+				0DF496A02BD977DA00AF0590 /* QuickHabitTrackerApp.swift */,
 				0DF4969F2BD977DA00AF0590 /* QuickHabitTracker */,
 				0DF496B82BD9781B00AF0590 /* QuickHabitTrackerWidget */,
 				0DF496B32BD9781B00AF0590 /* Frameworks */,
@@ -148,14 +165,14 @@
 			isa = PBXGroup;
 			children = (
 				0D66AD612BE2B215002AD8B0 /* CoreData */,
-				0DF496A02BD977DA00AF0590 /* QuickHabitTrackerApp.swift */,
 				0DF496A22BD977DA00AF0590 /* ContentView.swift */,
-				0DA74FFC2BE76FBF0009B1DF /* MontlyHistoryView.swift */,
-				0DA74FFE2BE76FCC0009B1DF /* DailyHistoryView.swift */,
-				0D77714B2BEB6FCC00415574 /* DayView.swift */,
+				0DA74FFC2BE76FBF0009B1DF /* MonthsOfYearView.swift */,
+				0DA74FFE2BE76FCC0009B1DF /* DaysOfMonthView.swift */,
+				0D77714B2BEB6FCC00415574 /* DayRecordView.swift */,
 				0DA74FFA2BE6339A0009B1DF /* CreateHabitView.swift */,
-				0D50A2482BF35A6A007CA46D /* HabitlistView.swift */,
-				0D50A24A2BF370E9007CA46D /* fetchBydateView.swift */,
+				0D60E2FB2BF5F2E1009D8614 /* HelperFunctions.swift */,
+				0DEDC2D22C008D510029C637 /* ActiveHabitsView.swift */,
+				0D60E2FD2BF5F4A8009D8614 /* TempViews */,
 				0DF496A42BD977DE00AF0590 /* Assets.xcassets */,
 				0DF496A62BD977DE00AF0590 /* Preview Content */,
 			);
@@ -293,17 +310,20 @@
 			files = (
 				0D66AD732BE2B5B2002AD8B0 /* CoreDataHelper.swift in Sources */,
 				0DBC9D732BDEC5390018C39B /* ChangeHabitStatusIntent.swift in Sources */,
-				0DA74FFD2BE76FBF0009B1DF /* MontlyHistoryView.swift in Sources */,
+				0DA74FFD2BE76FBF0009B1DF /* MonthsOfYearView.swift in Sources */,
 				0DA74FFB2BE6339A0009B1DF /* CreateHabitView.swift in Sources */,
 				0D50A2492BF35A6A007CA46D /* HabitlistView.swift in Sources */,
 				0DBC9D702BDEBCF10018C39B /* SharedUserDefaults.swift in Sources */,
 				0D9A92722BE2AF2A00E066F9 /* model.xcdatamodeld in Sources */,
 				0DF496A32BD977DA00AF0590 /* ContentView.swift in Sources */,
 				0DFC61B22BF51C98008B3AD2 /* TrackedHabitsByDate+CoreDataClass.swift in Sources */,
+				0D60E2FF2BF6646D009D8614 /* UITest.swift in Sources */,
+				0DEDC2D32C008D510029C637 /* ActiveHabitsView.swift in Sources */,
 				0DFC61B32BF51C98008B3AD2 /* TrackedHabitsByDate+CoreDataProperties.swift in Sources */,
-				0D77714C2BEB6FCC00415574 /* DayView.swift in Sources */,
-				0DA74FFF2BE76FCC0009B1DF /* DailyHistoryView.swift in Sources */,
+				0D77714C2BEB6FCC00415574 /* DayRecordView.swift in Sources */,
+				0DA74FFF2BE76FCC0009B1DF /* DaysOfMonthView.swift in Sources */,
 				0DF496A12BD977DA00AF0590 /* QuickHabitTrackerApp.swift in Sources */,
+				0D60E2FC2BF5F2E1009D8614 /* HelperFunctions.swift in Sources */,
 				0D0B4A8F2BF1389A00CC1CB7 /* Habit+CoreDataClass.swift in Sources */,
 				0D0B4A902BF1389A00CC1CB7 /* Habit+CoreDataProperties.swift in Sources */,
 				0D50A24B2BF370E9007CA46D /* fetchBydateView.swift in Sources */,

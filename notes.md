@@ -110,5 +110,12 @@ then according to the weekday i should fetch the habits where the isRepeated<WEE
 then i should put the results to the notDoneHabits array(just the name of habits as array of string) challenge
 then i should list the habits in notDoneHabits as buttons okay
 when the buttons pressed the notDoneHabits goes to doneHabits and the appeariance changes okay
+
+--- 
+Errors:
+
+'NSKeyedUnarchiveFromData' should not be used to for un-archiving and will be removed in a future release
     
+    
+    NSStringArrayTransformerValueTransformerName
 

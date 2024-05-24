@@ -44,8 +44,11 @@ struct ContentView: View {
                 }
                 
                 
-                NavigationLink(destination: MontlyHistoryView()) {
+                NavigationLink(destination: MonthsOfYearView()) {
                     Text("Monthly History")
+                }
+                NavigationLink(destination: ActiveHabitsView()) {
+                    Text("Habits")
                 }
                 
                 //THIS PART IS FOR WIDGET STUFF

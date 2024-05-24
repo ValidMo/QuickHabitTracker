@@ -15,6 +15,8 @@ struct fetchBydateView: View {
     
     @Environment(\.managedObjectContext) var context
     
+    
+    
     @State private var habits: [Habit] = []
     
     var body: some View {

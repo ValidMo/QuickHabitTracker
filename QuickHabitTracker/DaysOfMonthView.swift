@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DailyHistoryView: View {
+struct DaysOfMonthView: View {
     @Binding var month: String
     
     @Environment(\.managedObjectContext) var context
@@ -24,11 +24,11 @@ struct DailyHistoryView: View {
     }
 
     var body: some View {
-           NavigationStack {
+           
                
                LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())], spacing: 8) {
                    ForEach(days, id: \.self) { day in
-                       NavigationLink(destination: DayView(day: day, month: getMonthNumber(from: month), year: 2023)) {
+                       NavigationLink(destination: DayRecordView(day: day, month: getMonthNumber(from: month), year: 2023)) {
                            Text("\(day)")
                                .foregroundColor(.white)
                                .frame(width: 40, height: 40)
@@ -40,27 +40,17 @@ struct DailyHistoryView: View {
                }
                .navigationTitle("\(month)")
                Spacer()
-           }
+           
           
        }
-    
-    
 
-    func getMonthNumber(from monthString: String) -> Int {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMMM"
-        if let monthNumber = dateFormatter.monthSymbols.firstIndex(of: monthString.capitalized) {
-            return monthNumber + 1
-        }
-        return 1 // Default to January if the month string is invalid
-    }
 }
 
 
 
 
 #Preview {
-    DailyHistoryView(month: .constant("May"))
+    DaysOfMonthView(month: .constant("May"))
 }
 
 
