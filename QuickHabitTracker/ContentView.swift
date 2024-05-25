@@ -76,7 +76,6 @@ struct ContentView: View {
             .onAppear{
                 fetchTodaysHabits()
             }
-           
             .onChange(of: firstHabitStatus) { _ in
                 habitStatus = getHabitStatus()
             }
@@ -84,7 +83,6 @@ struct ContentView: View {
                 habitStatus = getHabitStatus()
             }
             .padding()
-            
             .onReceive(NotificationCenter.default.publisher(for: .NSManagedObjectContextDidSave, object: context)) { _ in
                 fetchTodaysHabits()
             }

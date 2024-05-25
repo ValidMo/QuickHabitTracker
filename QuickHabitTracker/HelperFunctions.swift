@@ -49,7 +49,7 @@ func whichDayOfWeek(day: Int, month: Int, year: Int) -> String? {
     }
 }
 
-func TrackHabit(day: Int, month: Int, year: Int, context: NSManagedObjectContext) {
+func AddRecord(day: Int, month: Int, year: Int, context: NSManagedObjectContext, habits: [Habit]) {
     let dayRecord = TrackedHabitsByDate(context: context)
     
     let calendar = Calendar.current
@@ -64,8 +64,9 @@ func TrackHabit(day: Int, month: Int, year: Int, context: NSManagedObjectContext
     }
     
     dayRecord.date = date
-    dayRecord.allHabits = ["run", "drive"]
-    dayRecord.doneHabits = ["bike"]
+    let habitNames = habits.map { $0.name }
+    dayRecord.allHabits = [habitNames]
+    dayRecord.doneHabits = []
     
     do {
         try dayRecord.managedObjectContext?.save()
@@ -73,6 +74,8 @@ func TrackHabit(day: Int, month: Int, year: Int, context: NSManagedObjectContext
         print("Error saving context: \(error.localizedDescription)")
     }
 }
+
+//func EditRecord
 
 func fetchRequest(day: Int, month: Int, year: Int, context: NSManagedObjectContext) -> NSFetchRequest<Habit>? {
     

@@ -12,10 +12,12 @@ struct HabitlistView: View {
     @FetchRequest(sortDescriptors: []) var habits: FetchedResults<TrackedHabitsByDate>
     
     let dateFormatter: DateFormatter = {
-           let formatter = DateFormatter()
-           formatter.dateStyle = .short // You can change the style according to your preference
-           return formatter
-       }()
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short // You can change the style according to your preference
+        return formatter
+    }()
+    
+  //  let credits = ["12312", "1231231", "fwefwefw"]
     
     var body: some View {
         List {
@@ -27,11 +29,13 @@ struct HabitlistView: View {
                             Text(habitName)
                             Text(dateFormatter.string(from: date))
                         }
-                            
+                        
                         
                     }
                 }
-                            }
+                
+              //  Text(habit)
+            }
         }
     }
 }

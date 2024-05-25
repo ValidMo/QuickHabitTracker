@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0D0B4A8F2BF1389A00CC1CB7 /* Habit+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0B4A8D2BF1389A00CC1CB7 /* Habit+CoreDataClass.swift */; };
 		0D0B4A902BF1389A00CC1CB7 /* Habit+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0B4A8E2BF1389A00CC1CB7 /* Habit+CoreDataProperties.swift */; };
+		0D2664B52C01ED0A00FD11AD /* AddRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2664B42C01ED0A00FD11AD /* AddRecordView.swift */; };
 		0D50A2492BF35A6A007CA46D /* HabitlistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D50A2482BF35A6A007CA46D /* HabitlistView.swift */; };
 		0D50A24B2BF370E9007CA46D /* fetchBydateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D50A24A2BF370E9007CA46D /* fetchBydateView.swift */; };
 		0D60E2FC2BF5F2E1009D8614 /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D60E2FB2BF5F2E1009D8614 /* HelperFunctions.swift */; };
@@ -65,6 +66,7 @@
 /* Begin PBXFileReference section */
 		0D0B4A8D2BF1389A00CC1CB7 /* Habit+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Habit+CoreDataClass.swift"; sourceTree = "<group>"; };
 		0D0B4A8E2BF1389A00CC1CB7 /* Habit+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Habit+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		0D2664B42C01ED0A00FD11AD /* AddRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecordView.swift; sourceTree = "<group>"; };
 		0D3FCAD32BDE4DDA004FDD0D /* ChangeHabitStatusIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeHabitStatusIntent.swift; sourceTree = "<group>"; };
 		0D50A2482BF35A6A007CA46D /* HabitlistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitlistView.swift; sourceTree = "<group>"; };
 		0D50A24A2BF370E9007CA46D /* fetchBydateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fetchBydateView.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 				0DA74FFA2BE6339A0009B1DF /* CreateHabitView.swift */,
 				0D60E2FB2BF5F2E1009D8614 /* HelperFunctions.swift */,
 				0DEDC2D22C008D510029C637 /* ActiveHabitsView.swift */,
+				0D2664B42C01ED0A00FD11AD /* AddRecordView.swift */,
 				0D60E2FD2BF5F4A8009D8614 /* TempViews */,
 				0DF496A42BD977DE00AF0590 /* Assets.xcassets */,
 				0DF496A62BD977DE00AF0590 /* Preview Content */,
@@ -313,6 +316,7 @@
 				0DA74FFD2BE76FBF0009B1DF /* MonthsOfYearView.swift in Sources */,
 				0DA74FFB2BE6339A0009B1DF /* CreateHabitView.swift in Sources */,
 				0D50A2492BF35A6A007CA46D /* HabitlistView.swift in Sources */,
+				0D2664B52C01ED0A00FD11AD /* AddRecordView.swift in Sources */,
 				0DBC9D702BDEBCF10018C39B /* SharedUserDefaults.swift in Sources */,
 				0D9A92722BE2AF2A00E066F9 /* model.xcdatamodeld in Sources */,
 				0DF496A32BD977DA00AF0590 /* ContentView.swift in Sources */,
