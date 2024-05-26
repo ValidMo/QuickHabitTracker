@@ -28,14 +28,28 @@ struct DayRecordView: View {
                     VStack{
                         if !records.isEmpty{
                             ForEach(records){ record in
-                                if let allrecords = record.allHabits as? [String]  {
-                                    ForEach(allrecords, id: \.self) { record in
+                                if let allHabits = record.allHabits {
+                                    ForEach(allHabits, id: \.self) { habit in
+                                        HStack{
+                                            Button(habit){
+                                                addHabitToDoneHabits(habit: habit, record: record)
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            Divider()
+                            ForEach(records){ record in
+                                if let doneRecords = record.doneHabits {
+                                    ForEach(doneRecords, id: \.self){ record in
                                         HStack{
                                             Text(record)
                                         }
                                     }
                                 }
+                                
                             }
+                            
                         }
                         else {
                             HStack{
@@ -97,6 +111,26 @@ struct DayRecordView: View {
             
         }
         
+    }
+    
+    func addHabitToDoneHabits(habit: String, record: TrackedHabitsByDate){
+        
+        if let doneHabits = record.doneHabits{
+            if !doneHabits.contains(habit.lowercased()){
+                record.doneHabits?.append(habit)
+            }
+            else {
+                print("Habit already in the done list")
+            }
+        }
+        
+        
+        do {
+            try record.managedObjectContext?.save()
+            print("habit added to doneHabits")
+        } catch let error {
+            print("Error saving context: \(error.localizedDescription)")
+        }
     }
 }
 

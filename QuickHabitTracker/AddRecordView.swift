@@ -23,12 +23,12 @@ struct AddRecordView: View {
         VStack{
             
             ForEach(habits) { habit in
-                Button("\(habit.name)") {
+                Button(habit.name) {
                     if let record = checkForRecordedDay(day: day, month: month, year: year, context: context).first {
-                        if let trackedHabit = record.first {
-                            if let doneHabits = trackedHabit.doneHabits as? NSMutableArray {
+                    //    if let trackedHabit = record {
+                            if let doneHabits = record.doneHabits  {
                                 if !doneHabits.contains((habit.name).lowercased()) {
-                                    doneHabits.add((habit.name).lowercased())
+                                    record.doneHabits?.append((habit.name).lowercased())
                                     do {
                                         try context.save()
                                     } catch {
@@ -40,9 +40,10 @@ struct AddRecordView: View {
                             } else {
                                 print("Unable to cast doneHabits to NSMutableArray")
                             }
-                        } else {
-                            print("No tracked habits found for the specified date")
-                        }
+                       // }
+//                        else {
+//                            print("No tracked habits found for the specified date")
+//                        }
                     } else {
                         createRecord(habits: habits)
                         print("Record Created")
@@ -70,7 +71,15 @@ struct AddRecordView: View {
         
         record.date = date
         record.doneHabits = []
-        record.allHabits = [habits]
+        record.allHabits = habits.map { $0.name }
+        
+        do {
+            
+            try record.managedObjectContext?.save()
+            
+        } catch let error {
+            print("Error saving context: \(error.localizedDescription)")
+        }
         
     }
         
@@ -89,13 +98,13 @@ func checkForRecordedDay(day: Int, month: Int, year: Int, context: NSManagedObje
         }
         catch {
             print("Error fetching data: \(error)")
-           // return nil
+           return []
         }
         
     }
     else {
         print("bad request while fetching TrackedDays")
-     //   return nil
+       return []
     }
     
 }

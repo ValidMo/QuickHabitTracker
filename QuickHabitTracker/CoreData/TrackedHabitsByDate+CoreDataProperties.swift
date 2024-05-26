@@ -16,9 +16,9 @@ extension TrackedHabitsByDate {
         return NSFetchRequest<TrackedHabitsByDate>(entityName: "TrackedHabitsByDate")
     }
 
-    @NSManaged public var date: Date?
-    @NSManaged public var doneHabits: NSArray?
-    @NSManaged public var allHabits: NSArray?
+    @NSManaged public var date: Date
+    @NSManaged public var doneHabits: [String]?
+    @NSManaged public var allHabits: [String]?
 
 }
 

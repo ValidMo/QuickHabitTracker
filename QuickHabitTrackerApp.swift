@@ -11,6 +11,11 @@ import SwiftUI
 struct QuickHabitTrackerApp: App {
     
     @StateObject private var coreDataHelper = CoreDataHelper.shared
+    
+    init() {
+          registerTransformers()
+      }
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
@@ -19,4 +24,9 @@ struct QuickHabitTrackerApp: App {
         }
     
     }
+    
+    private func registerTransformers() {
+           ValueTransformer.setValueTransformer(DoneHabitsTransformer(), forName: NSValueTransformerName(rawValue: "DoneHabitsTransformer"))
+           ValueTransformer.setValueTransformer(AllHabitsTransformer(), forName: NSValueTransformerName(rawValue: "AllHabitsTransformer"))
+       }
 }

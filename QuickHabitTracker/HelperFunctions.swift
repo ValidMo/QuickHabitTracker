@@ -48,7 +48,7 @@ func whichDayOfWeek(day: Int, month: Int, year: Int) -> String? {
         return nil // Should never happen, but return nil to handle unexpected cases
     }
 }
-
+/*
 func AddRecord(day: Int, month: Int, year: Int, context: NSManagedObjectContext, habits: [Habit]) {
     let dayRecord = TrackedHabitsByDate(context: context)
     
@@ -74,6 +74,7 @@ func AddRecord(day: Int, month: Int, year: Int, context: NSManagedObjectContext,
         print("Error saving context: \(error.localizedDescription)")
     }
 }
+*/
 
 //func EditRecord
 
@@ -138,6 +139,12 @@ func getMonthNumber(from monthString: String) -> Int {
     }
     return 1 // Default to January if the month string is invalid
 }
+
+func shortDateString(from date: Date) -> String {
+       let formatter = DateFormatter()
+       formatter.dateStyle = .short
+       return formatter.string(from: date)
+   }
 
 
 

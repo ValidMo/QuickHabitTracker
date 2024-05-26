@@ -12,8 +12,8 @@
         <attribute name="name" attributeType="String"/>
     </entity>
     <entity name="TrackedHabitsByDate" representedClassName="TrackedHabitsByDate" syncable="YES">
-        <attribute name="allHabits" optional="YES" attributeType="Transformable" valueTransformerName=""/>
+        <attribute name="allHabits" optional="YES" attributeType="Transformable" valueTransformerName="AllHabitsTransformer"/>
         <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="doneHabits" optional="YES" attributeType="Transformable" valueTransformerName=""/>
+        <attribute name="doneHabits" optional="YES" attributeType="Transformable" valueTransformerName="DoneHabitsTransformer"/>
     </entity>
 </model>

@@ -62,9 +62,9 @@ struct ContentView: View {
                 
                 
                 NavigationLink {
-                    HabitlistView()
+                    RecordListView()
                 } label: {
-                    Text("Habit List")
+                    Text("Record List")
                 }
 
 
@@ -74,7 +74,7 @@ struct ContentView: View {
                 Divider()
             }
             .onAppear{
-                fetchTodaysHabits()
+               // fetchTodaysHabits()
             }
             .onChange(of: firstHabitStatus) { _ in
                 habitStatus = getHabitStatus()
