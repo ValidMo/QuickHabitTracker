@@ -9,7 +9,7 @@ import SwiftUI
 import CoreData
 
 
-struct AddRecordView: View {
+struct CreateRecordView: View {
     
     @Environment(\.managedObjectContext) var context
     @Binding var habits: [Habit]
@@ -45,7 +45,7 @@ struct AddRecordView: View {
 //                            print("No tracked habits found for the specified date")
 //                        }
                     } else {
-                        createRecord(habits: habits)
+                        createRecord(habits: habits, habit: habit)
                         print("Record Created")
                     }
                 }
@@ -56,8 +56,8 @@ struct AddRecordView: View {
             
         }
     }
-    func createRecord(habits: [Habit]) {
-        let record = TrackedHabitsByDate(context: context)
+    func createRecord(habits: [Habit], habit: Habit) {
+        let record = DayRecord(context: context)
         let calendar = Calendar.current
         var dateComponents = DateComponents()
         dateComponents.day = day
@@ -70,7 +70,7 @@ struct AddRecordView: View {
         }
         
         record.date = date
-        record.doneHabits = []
+        record.doneHabits = [habit.name.lowercased()]
         record.allHabits = habits.map { $0.name }
         
         do {
@@ -87,7 +87,7 @@ struct AddRecordView: View {
 
 
 
-func checkForRecordedDay(day: Int, month: Int, year: Int, context: NSManagedObjectContext) -> [TrackedHabitsByDate] {
+func checkForRecordedDay(day: Int, month: Int, year: Int, context: NSManagedObjectContext) -> [DayRecord] {
 
    
     if let request = fetchRequestForTrackedHabits(day: day, month: month, year: year, context: context){

@@ -48,65 +48,39 @@ func whichDayOfWeek(day: Int, month: Int, year: Int) -> String? {
         return nil // Should never happen, but return nil to handle unexpected cases
     }
 }
-/*
-func AddRecord(day: Int, month: Int, year: Int, context: NSManagedObjectContext, habits: [Habit]) {
-    let dayRecord = TrackedHabitsByDate(context: context)
-    
-    let calendar = Calendar.current
-    var dateComponents = DateComponents()
-    dateComponents.day = day
-    dateComponents.month = month
-    dateComponents.year = year
-    
-    guard let date = calendar.date(from: dateComponents) else {
-        print("Could not make date from DateComponents")
-        return
-    }
-    
-    dayRecord.date = date
-    let habitNames = habits.map { $0.name }
-    dayRecord.allHabits = [habitNames]
-    dayRecord.doneHabits = []
-    
-    do {
-        try dayRecord.managedObjectContext?.save()
-    } catch let error {
-        print("Error saving context: \(error.localizedDescription)")
-    }
-}
-*/
+
 
 //func EditRecord
 
 func fetchRequest(day: Int, month: Int, year: Int, context: NSManagedObjectContext) -> NSFetchRequest<Habit>? {
     
-   // let dayOfWeek = whichDayOfWeek(day: day, month: month, year: year)!
+    // let dayOfWeek = whichDayOfWeek(day: day, month: month, year: year)!
     
     guard let dayOfWeek = whichDayOfWeek(day: day, month: month, year: year) else {
-            print("Invalid Date Format")
-            return nil
-        }
-     
-        
-        let request: NSFetchRequest<Habit> = NSFetchRequest<Habit>(entityName: "Habit")
-        
-        // Create predicate for the specific day of the week
+        print("Invalid Date Format")
+        return nil
+    }
+    
+    
+    let request: NSFetchRequest<Habit> = NSFetchRequest<Habit>(entityName: "Habit")
+    
+    // Create predicate for the specific day of the week
     let predicateFormat = "isRepeatedOn\(dayOfWeek) == %@"
     let predicate = NSPredicate(format: predicateFormat, argumentArray: [true])
-       request.predicate = predicate
-        
-        return request
+    request.predicate = predicate
+    
+    return request
 }
 
-import CoreData
 
-func fetchRequestForTrackedHabits(day: Int, month: Int, year: Int, context: NSManagedObjectContext) -> NSFetchRequest<TrackedHabitsByDate>? {
+
+func fetchRequestForTrackedHabits(day: Int, month: Int, year: Int, context: NSManagedObjectContext) -> NSFetchRequest<DayRecord>? {
     
-    let request: NSFetchRequest<TrackedHabitsByDate> = NSFetchRequest<TrackedHabitsByDate>(entityName: "TrackedHabitsByDate")
+    let request: NSFetchRequest<DayRecord> = NSFetchRequest<DayRecord>(entityName: "DayRecord")
     
     let calendar = Calendar.current
     
-
+    
     var dateComponents = DateComponents()
     dateComponents.day = day
     dateComponents.month = month
@@ -141,11 +115,19 @@ func getMonthNumber(from monthString: String) -> Int {
 }
 
 func shortDateString(from date: Date) -> String {
-       let formatter = DateFormatter()
-       formatter.dateStyle = .short
-       return formatter.string(from: date)
-   }
+    let formatter = DateFormatter()
+    formatter.dateStyle = .short
+    return formatter.string(from: date)
+}
 
+
+func calculateYear() -> Int {
+    let calendar = Calendar.current
+    let currentDate = Date()
+    let currentYear = calendar.component(.year, from: currentDate)
+    
+    return currentYear
+}
 
 
 

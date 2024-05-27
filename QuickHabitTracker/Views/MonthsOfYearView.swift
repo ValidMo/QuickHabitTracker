@@ -20,7 +20,7 @@ struct MonthsOfYearView: View {
         LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())], spacing: 20) { 
           ForEach(months, id: \.self) { month in
             NavigationLink(month) {
-                DaysOfMonthView(month: .constant(month))
+                DaysOfMonthView(month: .constant(month), currentYear: calculateYear())
             }
             .foregroundColor(.white)
             .frame(minWidth: 0, maxWidth: .infinity, minHeight: 90)

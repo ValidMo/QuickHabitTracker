@@ -10,7 +10,7 @@ import CoreData
 
 struct RecordListView: View {
     
-    @FetchRequest(sortDescriptors: []) var records: FetchedResults<TrackedHabitsByDate>
+    @FetchRequest(sortDescriptors: []) var records: FetchedResults<DayRecord>
 
     
     var body: some View {

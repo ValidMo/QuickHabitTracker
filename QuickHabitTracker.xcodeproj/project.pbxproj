@@ -10,7 +10,9 @@
 		0D0B4A8F2BF1389A00CC1CB7 /* Habit+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0B4A8D2BF1389A00CC1CB7 /* Habit+CoreDataClass.swift */; };
 		0D0B4A902BF1389A00CC1CB7 /* Habit+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0B4A8E2BF1389A00CC1CB7 /* Habit+CoreDataProperties.swift */; };
 		0D215BDC2C0328580081D7F3 /* HabitTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D215BDB2C0328580081D7F3 /* HabitTransformer.swift */; };
-		0D2664B52C01ED0A00FD11AD /* AddRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2664B42C01ED0A00FD11AD /* AddRecordView.swift */; };
+		0D2664B52C01ED0A00FD11AD /* CreateRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2664B42C01ED0A00FD11AD /* CreateRecordView.swift */; };
+		0D2C05F82C0467BD0088FE36 /* DayRecord+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2C05F62C0467BD0088FE36 /* DayRecord+CoreDataClass.swift */; };
+		0D2C05F92C0467BD0088FE36 /* DayRecord+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2C05F72C0467BD0088FE36 /* DayRecord+CoreDataProperties.swift */; };
 		0D50A2492BF35A6A007CA46D /* RecordListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D50A2482BF35A6A007CA46D /* RecordListView.swift */; };
 		0D50A24B2BF370E9007CA46D /* fetchBydateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D50A24A2BF370E9007CA46D /* fetchBydateView.swift */; };
 		0D60E2FC2BF5F2E1009D8614 /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D60E2FB2BF5F2E1009D8614 /* HelperFunctions.swift */; };
@@ -25,9 +27,9 @@
 		0DBC9D712BDEBCF10018C39B /* SharedUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBC9D6F2BDEBCF10018C39B /* SharedUserDefaults.swift */; };
 		0DBC9D722BDEC4360018C39B /* ChangeHabitStatusIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3FCAD32BDE4DDA004FDD0D /* ChangeHabitStatusIntent.swift */; };
 		0DBC9D732BDEC5390018C39B /* ChangeHabitStatusIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3FCAD32BDE4DDA004FDD0D /* ChangeHabitStatusIntent.swift */; };
-		0DEDC2D32C008D510029C637 /* ActiveHabitsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DEDC2D22C008D510029C637 /* ActiveHabitsView.swift */; };
+		0DEDC2D32C008D510029C637 /* HabitListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DEDC2D22C008D510029C637 /* HabitListView.swift */; };
 		0DF496A12BD977DA00AF0590 /* QuickHabitTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF496A02BD977DA00AF0590 /* QuickHabitTrackerApp.swift */; };
-		0DF496A32BD977DA00AF0590 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF496A22BD977DA00AF0590 /* ContentView.swift */; };
+		0DF496A32BD977DA00AF0590 /* EnterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF496A22BD977DA00AF0590 /* EnterView.swift */; };
 		0DF496A52BD977DE00AF0590 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DF496A42BD977DE00AF0590 /* Assets.xcassets */; };
 		0DF496A82BD977DE00AF0590 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DF496A72BD977DE00AF0590 /* Preview Assets.xcassets */; };
 		0DF496B52BD9781B00AF0590 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DF496B42BD9781B00AF0590 /* WidgetKit.framework */; };
@@ -36,8 +38,6 @@
 		0DF496BC2BD9781B00AF0590 /* QuickHabitTrackerWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF496BB2BD9781B00AF0590 /* QuickHabitTrackerWidget.swift */; };
 		0DF496BE2BD9782200AF0590 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DF496BD2BD9782200AF0590 /* Assets.xcassets */; };
 		0DF496C22BD9782200AF0590 /* QuickHabitTrackerWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 0DF496B22BD9781B00AF0590 /* QuickHabitTrackerWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		0DFC61B22BF51C98008B3AD2 /* TrackedHabitsByDate+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFC61B02BF51C98008B3AD2 /* TrackedHabitsByDate+CoreDataClass.swift */; };
-		0DFC61B32BF51C98008B3AD2 /* TrackedHabitsByDate+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFC61B12BF51C98008B3AD2 /* TrackedHabitsByDate+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,7 +68,9 @@
 		0D0B4A8D2BF1389A00CC1CB7 /* Habit+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Habit+CoreDataClass.swift"; sourceTree = "<group>"; };
 		0D0B4A8E2BF1389A00CC1CB7 /* Habit+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Habit+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		0D215BDB2C0328580081D7F3 /* HabitTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitTransformer.swift; sourceTree = "<group>"; };
-		0D2664B42C01ED0A00FD11AD /* AddRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecordView.swift; sourceTree = "<group>"; };
+		0D2664B42C01ED0A00FD11AD /* CreateRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRecordView.swift; sourceTree = "<group>"; };
+		0D2C05F62C0467BD0088FE36 /* DayRecord+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DayRecord+CoreDataClass.swift"; sourceTree = "<group>"; };
+		0D2C05F72C0467BD0088FE36 /* DayRecord+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DayRecord+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		0D3FCAD32BDE4DDA004FDD0D /* ChangeHabitStatusIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeHabitStatusIntent.swift; sourceTree = "<group>"; };
 		0D50A2482BF35A6A007CA46D /* RecordListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordListView.swift; sourceTree = "<group>"; };
 		0D50A24A2BF370E9007CA46D /* fetchBydateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fetchBydateView.swift; sourceTree = "<group>"; };
@@ -82,10 +84,10 @@
 		0DA74FFE2BE76FCC0009B1DF /* DaysOfMonthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysOfMonthView.swift; sourceTree = "<group>"; };
 		0DBC9D6F2BDEBCF10018C39B /* SharedUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedUserDefaults.swift; sourceTree = "<group>"; };
 		0DD857702BE1017400CCF808 /* notes.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = notes.md; sourceTree = "<group>"; };
-		0DEDC2D22C008D510029C637 /* ActiveHabitsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveHabitsView.swift; sourceTree = "<group>"; };
+		0DEDC2D22C008D510029C637 /* HabitListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitListView.swift; sourceTree = "<group>"; };
 		0DF4969D2BD977DA00AF0590 /* QuickHabitTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuickHabitTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DF496A02BD977DA00AF0590 /* QuickHabitTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickHabitTrackerApp.swift; sourceTree = "<group>"; };
-		0DF496A22BD977DA00AF0590 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		0DF496A22BD977DA00AF0590 /* EnterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterView.swift; sourceTree = "<group>"; };
 		0DF496A42BD977DE00AF0590 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0DF496A72BD977DE00AF0590 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0DF496B22BD9781B00AF0590 /* QuickHabitTrackerWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = QuickHabitTrackerWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,8 +97,6 @@
 		0DF496BB2BD9781B00AF0590 /* QuickHabitTrackerWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickHabitTrackerWidget.swift; sourceTree = "<group>"; };
 		0DF496BD2BD9782200AF0590 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0DF496BF2BD9782200AF0590 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0DFC61B02BF51C98008B3AD2 /* TrackedHabitsByDate+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TrackedHabitsByDate+CoreDataClass.swift"; sourceTree = "<group>"; };
-		0DFC61B12BF51C98008B3AD2 /* TrackedHabitsByDate+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TrackedHabitsByDate+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +119,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D2C05FA2C047CED0088FE36 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0DF496A22BD977DA00AF0590 /* EnterView.swift */,
+				0DA74FFC2BE76FBF0009B1DF /* MonthsOfYearView.swift */,
+				0DA74FFE2BE76FCC0009B1DF /* DaysOfMonthView.swift */,
+				0D77714B2BEB6FCC00415574 /* DayRecordView.swift */,
+				0DA74FFA2BE6339A0009B1DF /* CreateHabitView.swift */,
+				0D2664B42C01ED0A00FD11AD /* CreateRecordView.swift */,
+				0DEDC2D22C008D510029C637 /* HabitListView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		0D60E2FD2BF5F4A8009D8614 /* TempViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -135,8 +149,8 @@
 				0D9A92702BE2AF2A00E066F9 /* model.xcdatamodeld */,
 				0D0B4A8D2BF1389A00CC1CB7 /* Habit+CoreDataClass.swift */,
 				0D0B4A8E2BF1389A00CC1CB7 /* Habit+CoreDataProperties.swift */,
-				0DFC61B02BF51C98008B3AD2 /* TrackedHabitsByDate+CoreDataClass.swift */,
-				0DFC61B12BF51C98008B3AD2 /* TrackedHabitsByDate+CoreDataProperties.swift */,
+				0D2C05F62C0467BD0088FE36 /* DayRecord+CoreDataClass.swift */,
+				0D2C05F72C0467BD0088FE36 /* DayRecord+CoreDataProperties.swift */,
 				0D66AD722BE2B5B2002AD8B0 /* CoreDataHelper.swift */,
 			);
 			path = CoreData;
@@ -168,19 +182,12 @@
 		0DF4969F2BD977DA00AF0590 /* QuickHabitTracker */ = {
 			isa = PBXGroup;
 			children = (
+				0D2C05FA2C047CED0088FE36 /* Views */,
 				0D66AD612BE2B215002AD8B0 /* CoreData */,
-				0DF496A22BD977DA00AF0590 /* ContentView.swift */,
-				0DA74FFC2BE76FBF0009B1DF /* MonthsOfYearView.swift */,
-				0DA74FFE2BE76FCC0009B1DF /* DaysOfMonthView.swift */,
-				0D77714B2BEB6FCC00415574 /* DayRecordView.swift */,
-				0DA74FFA2BE6339A0009B1DF /* CreateHabitView.swift */,
-				0D60E2FB2BF5F2E1009D8614 /* HelperFunctions.swift */,
-				0DEDC2D22C008D510029C637 /* ActiveHabitsView.swift */,
-				0D2664B42C01ED0A00FD11AD /* AddRecordView.swift */,
+				0DFBEA7C2C047DC30039B7B6 /* Helpers */,
 				0D60E2FD2BF5F4A8009D8614 /* TempViews */,
 				0DF496A42BD977DE00AF0590 /* Assets.xcassets */,
 				0DF496A62BD977DE00AF0590 /* Preview Content */,
-				0D215BDB2C0328580081D7F3 /* HabitTransformer.swift */,
 			);
 			path = QuickHabitTracker;
 			sourceTree = "<group>";
@@ -211,6 +218,15 @@
 				0DF496BF2BD9782200AF0590 /* Info.plist */,
 			);
 			path = QuickHabitTrackerWidget;
+			sourceTree = "<group>";
+		};
+		0DFBEA7C2C047DC30039B7B6 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				0D60E2FB2BF5F2E1009D8614 /* HelperFunctions.swift */,
+				0D215BDB2C0328580081D7F3 /* HabitTransformer.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -320,20 +336,20 @@
 				0D215BDC2C0328580081D7F3 /* HabitTransformer.swift in Sources */,
 				0DA74FFB2BE6339A0009B1DF /* CreateHabitView.swift in Sources */,
 				0D50A2492BF35A6A007CA46D /* RecordListView.swift in Sources */,
-				0D2664B52C01ED0A00FD11AD /* AddRecordView.swift in Sources */,
+				0D2664B52C01ED0A00FD11AD /* CreateRecordView.swift in Sources */,
 				0DBC9D702BDEBCF10018C39B /* SharedUserDefaults.swift in Sources */,
 				0D9A92722BE2AF2A00E066F9 /* model.xcdatamodeld in Sources */,
-				0DF496A32BD977DA00AF0590 /* ContentView.swift in Sources */,
-				0DFC61B22BF51C98008B3AD2 /* TrackedHabitsByDate+CoreDataClass.swift in Sources */,
+				0DF496A32BD977DA00AF0590 /* EnterView.swift in Sources */,
 				0D60E2FF2BF6646D009D8614 /* UITest.swift in Sources */,
-				0DEDC2D32C008D510029C637 /* ActiveHabitsView.swift in Sources */,
-				0DFC61B32BF51C98008B3AD2 /* TrackedHabitsByDate+CoreDataProperties.swift in Sources */,
+				0DEDC2D32C008D510029C637 /* HabitListView.swift in Sources */,
 				0D77714C2BEB6FCC00415574 /* DayRecordView.swift in Sources */,
 				0DA74FFF2BE76FCC0009B1DF /* DaysOfMonthView.swift in Sources */,
 				0DF496A12BD977DA00AF0590 /* QuickHabitTrackerApp.swift in Sources */,
 				0D60E2FC2BF5F2E1009D8614 /* HelperFunctions.swift in Sources */,
 				0D0B4A8F2BF1389A00CC1CB7 /* Habit+CoreDataClass.swift in Sources */,
 				0D0B4A902BF1389A00CC1CB7 /* Habit+CoreDataProperties.swift in Sources */,
+				0D2C05F82C0467BD0088FE36 /* DayRecord+CoreDataClass.swift in Sources */,
+				0D2C05F92C0467BD0088FE36 /* DayRecord+CoreDataProperties.swift in Sources */,
 				0D50A24B2BF370E9007CA46D /* fetchBydateView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

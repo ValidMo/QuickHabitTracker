@@ -11,7 +11,7 @@ import CoreData
 struct fetchBydateView: View {
     @State private var day: Int = 5
     @State private var month = 2
-    @State private var year = 2023
+    @State private var year = 2024
     
     @Environment(\.managedObjectContext) var context
     

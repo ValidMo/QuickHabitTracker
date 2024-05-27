@@ -17,7 +17,7 @@ struct DayRecordView: View {
     @State var showAddRecordView: Bool = false
     
     @Environment(\.managedObjectContext) var context
-    @State private var records: [TrackedHabitsByDate] = []
+    @State private var records: [DayRecord] = []
     @State private var habits: [Habit] = []
     
     var body: some View {
@@ -75,7 +75,7 @@ struct DayRecordView: View {
                 
            }
            .sheet(isPresented: $showAddRecordView, content: {
-               AddRecordView(habits: $habits, day: $day, month: $month, year: $year)
+               CreateRecordView(habits: $habits, day: $day, month: $month, year: $year)
            })
            .padding(.top, 0)
 
@@ -113,7 +113,7 @@ struct DayRecordView: View {
         
     }
     
-    func addHabitToDoneHabits(habit: String, record: TrackedHabitsByDate){
+    func addHabitToDoneHabits(habit: String, record: DayRecord){
         
         if let doneHabits = record.doneHabits{
             if !doneHabits.contains(habit.lowercased()){

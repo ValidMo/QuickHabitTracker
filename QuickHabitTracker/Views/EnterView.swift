@@ -5,14 +5,11 @@
 //  Created by Valid Mohammadi on 24.04.2024.
 //
 
-import SwiftUI
-import WidgetKit
-
 
 import SwiftUI
 import WidgetKit
 
-struct ContentView: View {
+struct EnterView: View {
     
     
     @AppStorage("firstHabitStatus", store: UserDefaults(suiteName: "group.com.devNoyan.QuickHabitTracker")) var firstHabitStatus: Bool = false
@@ -26,17 +23,17 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                
-                
-                    List {
+
                         if habits.isEmpty{
                             Text("No Habits to do")
                         } else {
                             ForEach(habits) { habit in
-                                Text(habit.name)
+                                Button(habit.name){
+                                    
+                                }
                             }
                         }
-                    }
+                    
                 
                 
                 NavigationLink(destination: fetchBydateView()) {
@@ -47,7 +44,7 @@ struct ContentView: View {
                 NavigationLink(destination: MonthsOfYearView()) {
                     Text("Monthly History")
                 }
-                NavigationLink(destination: ActiveHabitsView()) {
+                NavigationLink(destination: HabitListView()) {
                     Text("Habits")
                 }
                 
@@ -74,7 +71,7 @@ struct ContentView: View {
                 Divider()
             }
             .onAppear{
-               // fetchTodaysHabits()
+               fetchTodaysHabits()
             }
             .onChange(of: firstHabitStatus) { _ in
                 habitStatus = getHabitStatus()
@@ -155,7 +152,7 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        EnterView()
     }
 }
 
