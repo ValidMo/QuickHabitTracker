@@ -9,7 +9,7 @@
 import SwiftUI
 import WidgetKit
 
-struct EnterView: View {
+struct HomeView: View {
     
     
     @AppStorage("firstHabitStatus", store: UserDefaults(suiteName: "group.com.devNoyan.QuickHabitTracker")) var firstHabitStatus: Bool = false
@@ -17,6 +17,7 @@ struct EnterView: View {
     @State private var showCreateHabitView: Bool = false
     
     @State private var habits: [Habit] = []
+    
     
     @Environment(\.managedObjectContext) var context
 
@@ -40,13 +41,14 @@ struct EnterView: View {
                     Text("Test")
                 }
                 
-                
-                NavigationLink(destination: MonthsOfYearView()) {
-                    Text("Monthly History")
+                /*
+                NavigationLink(destination: MonthsOfYearView(currentYear: $year)) {
+                   Text("Monthly History")
                 }
-                NavigationLink(destination: HabitListView()) {
+                NavigationLink(destination: HabitListOnWeekdaysView()) {
                     Text("Habits")
                 }
+                 */
                 
                 //THIS PART IS FOR WIDGET STUFF
                 /*
@@ -152,7 +154,7 @@ struct EnterView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        EnterView()
+        HomeView()
     }
 }
 

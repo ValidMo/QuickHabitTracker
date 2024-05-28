@@ -109,9 +109,12 @@ func getMonthNumber(from monthString: String) -> Int {
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "MMMM"
     if let monthNumber = dateFormatter.monthSymbols.firstIndex(of: monthString.capitalized) {
+        print(monthNumber + 1)
         return monthNumber + 1
     }
+    print("1")
     return 1 // Default to January if the month string is invalid
+    
 }
 
 func shortDateString(from date: Date) -> String {
@@ -126,6 +129,7 @@ func calculateYear() -> Int {
     let currentDate = Date()
     let currentYear = calendar.component(.year, from: currentDate)
     
+    print(currentYear)
     return currentYear
 }
 

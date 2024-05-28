@@ -8,7 +8,7 @@
 import SwiftUI
 import CoreData
 
-struct HabitListView: View {
+struct HabitListOnWeekdaysView: View {
     
     @FetchRequest(sortDescriptors: []) var habits: FetchedResults<Habit>
     
@@ -62,5 +62,5 @@ struct HabitListView: View {
 }
 
 #Preview {
-    HabitListView()
+    HabitListOnWeekdaysView()
 }
