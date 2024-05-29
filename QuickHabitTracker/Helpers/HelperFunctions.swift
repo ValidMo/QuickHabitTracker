@@ -133,7 +133,27 @@ func calculateYear() -> Int {
     return currentYear
 }
 
+func getMonthAsString() -> String {
+  let formatter = DateFormatter()
+  formatter.dateFormat = "MMMM"
+  return formatter.string(from: Date())
+}
 
+func getDayAsInt() -> Int {
+  let calendar = Calendar.current
+  let components = calendar.dateComponents([.day], from: Date())
+  return components.day ?? 2 // Use 1 as default if day is missing
+}
+
+func getMonthAsInt() -> Int {
+    let calendar = Calendar.current
+    let components = calendar.dateComponents([.month], from: Date())
+    print("***")
+   // print(components.month)
+    print("***")
+
+    return components.month ?? 2
+}
 
 
 
