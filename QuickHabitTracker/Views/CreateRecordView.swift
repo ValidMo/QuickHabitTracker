@@ -17,8 +17,8 @@ struct CreateRecordView: View {
     @Binding var month: Int
     @Binding var year: Int
     
-    
-    
+    let coreDataHelper = CoreDataHelper.shared
+
     var body: some View {
         VStack{
             
@@ -45,7 +45,8 @@ struct CreateRecordView: View {
 //                            print("No tracked habits found for the specified date")
 //                        }
                     } else {
-                        createRecord(habits: habits, habit: habit)
+                       // createRecord(habits: habits, habit: habit)
+                        coreDataHelper.createRecord(habits: habits, habit: habit, context: context, day: day, month: month, year: year)
                         print("Record Created")
                     }
                 }
@@ -56,32 +57,7 @@ struct CreateRecordView: View {
             
         }
     }
-    func createRecord(habits: [Habit], habit: Habit) {
-        let record = DayRecord(context: context)
-        let calendar = Calendar.current
-        var dateComponents = DateComponents()
-        dateComponents.day = day
-        dateComponents.month = month
-        dateComponents.year = year
-        
-        guard let date = calendar.date(from: dateComponents) else {
-            print("Error creating date from components")
-            return
-        }
-        
-        record.date = date
-        record.doneHabits = [habit.name.lowercased()]
-        record.allHabits = habits.map { $0.name }
-        
-        do {
-            
-            try record.managedObjectContext?.save()
-            
-        } catch let error {
-            print("Error saving context: \(error.localizedDescription)")
-        }
-        
-    }
+   
         
 }
 
@@ -110,6 +86,3 @@ func checkForRecordedDay(day: Int, month: Int, year: Int, context: NSManagedObje
 }
     
 
-//#Preview {
-//    AddRecordView()
-//}

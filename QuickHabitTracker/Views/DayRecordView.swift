@@ -8,6 +8,7 @@
 import SwiftUI
 import CoreData
 
+
 struct DayRecordView: View {
     
     @State var day: Int
@@ -19,6 +20,8 @@ struct DayRecordView: View {
     @Environment(\.managedObjectContext) var context
     @State private var records: [DayRecord] = []
     @State private var habits: [Habit] = []
+    
+    let coreDataHelper = CoreDataHelper.shared
     
     var body: some View {
        
@@ -32,7 +35,7 @@ struct DayRecordView: View {
                                     ForEach(allHabits, id: \.self) { habit in
                                         HStack{
                                             Button(habit){
-                                                addHabitToDoneHabits(habit: habit, record: record)
+                                                coreDataHelper.addHabitToDoneHabits(habit: habit, record: record)
                                             }
                                         }
                                     }
@@ -113,26 +116,12 @@ struct DayRecordView: View {
         
     }
     
-    func addHabitToDoneHabits(habit: String, record: DayRecord){
-        
-        if let doneHabits = record.doneHabits{
-            if !doneHabits.contains(habit.lowercased()){
-                record.doneHabits?.append(habit)
-            }
-            else {
-                print("Habit already in the done list")
-            }
-        }
-        
-        
-        do {
-            try record.managedObjectContext?.save()
-            print("habit added to doneHabits")
-        } catch let error {
-            print("Error saving context: \(error.localizedDescription)")
-        }
-    }
+   
 }
+
+
+
+
 
 
 

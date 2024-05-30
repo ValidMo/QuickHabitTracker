@@ -10,16 +10,18 @@ import CoreData
 
 struct CreateHabitView: View {
     
-    @Environment(\.managedObjectContext)  private var viewContext
+    @Environment(\.managedObjectContext)  private var context
     
     @State private var habitName: String = ""
-    @State private var isRepeatedonSun: Bool = false
-    @State private var isRepeatedonMon: Bool = false
-    @State private var isRepeatedonTue: Bool = false
-    @State private var isRepeatedonWed: Bool = false
-    @State private var isRepeatedonThu: Bool = false
-    @State private var isRepeatedonFri: Bool = false
-    @State private var isRepeatedonSat: Bool = false
+    @State private var isRepeatedOnSun: Bool = false
+    @State private var isRepeatedOnMon: Bool = false
+    @State private var isRepeatedOnTue: Bool = false
+    @State private var isRepeatedOnWed: Bool = false
+    @State private var isRepeatedOnThu: Bool = false
+    @State private var isRepeatedOnFri: Bool = false
+    @State private var isRepeatedOnSat: Bool = false
+    
+    let coreDataHelper = CoreDataHelper.shared
     
 
     var body: some View {
@@ -31,85 +33,85 @@ struct CreateHabitView: View {
             
             HStack(spacing: 10) {
                 Button {
-                    isRepeatedonSun.toggle()
+                    isRepeatedOnSun.toggle()
                 } label: {
                     Text("Sun")
-                    .foregroundColor(isRepeatedonSun ? .white : .primary)
+                    .foregroundColor(isRepeatedOnSun ? .white : .primary)
                     .frame(width: 40, height: 40)
-                    .background(isRepeatedonSun ? Color.accentColor : Color(.tertiarySystemFill))
+                    .background(isRepeatedOnSun ? Color.accentColor : Color(.tertiarySystemFill))
                     .cornerRadius(8)
                 }
                 
                 Button {
-                    isRepeatedonMon.toggle()
+                    isRepeatedOnMon.toggle()
                 } label: {
                     Text("Mon")
-                    .foregroundColor(isRepeatedonMon ? .white : .primary)
+                    .foregroundColor(isRepeatedOnMon ? .white : .primary)
                     .frame(width: 40, height: 40)
-                    .background(isRepeatedonMon ? Color.accentColor : Color(.tertiarySystemFill))
+                    .background(isRepeatedOnMon ? Color.accentColor : Color(.tertiarySystemFill))
                     .cornerRadius(8)
                 }
                 
                 Button {
-                    isRepeatedonTue.toggle()
+                    isRepeatedOnTue.toggle()
                 } label: {
                     Text("Tue")
-                    .foregroundColor(isRepeatedonTue ? .white : .primary)
+                    .foregroundColor(isRepeatedOnTue ? .white : .primary)
                     .frame(width: 40, height: 40)
-                    .background(isRepeatedonTue ? Color.accentColor : Color(.tertiarySystemFill))
+                    .background(isRepeatedOnTue ? Color.accentColor : Color(.tertiarySystemFill))
                     .cornerRadius(8)
                 }
                 
                 Button {
-                    isRepeatedonWed.toggle()
+                    isRepeatedOnWed.toggle()
                 } label: {
                     Text("Wed")
-                    .foregroundColor(isRepeatedonWed ? .white : .primary)
+                    .foregroundColor(isRepeatedOnWed ? .white : .primary)
                     .frame(width: 40, height: 40)
-                    .background(isRepeatedonWed ? Color.accentColor : Color(.tertiarySystemFill))
+                    .background(isRepeatedOnWed ? Color.accentColor : Color(.tertiarySystemFill))
                     .cornerRadius(8)
                 }
                 
                 Button {
-                    isRepeatedonThu.toggle()
+                    isRepeatedOnThu.toggle()
                 } label: {
                     Text("Thu")
-                    .foregroundColor(isRepeatedonThu ? .white : .primary)
+                    .foregroundColor(isRepeatedOnThu ? .white : .primary)
                     .frame(width: 40, height: 40)
-                    .background(isRepeatedonThu ? Color.accentColor : Color(.tertiarySystemFill))
+                    .background(isRepeatedOnThu ? Color.accentColor : Color(.tertiarySystemFill))
                     .cornerRadius(8)
                 }
                 
                 Button {
-                    isRepeatedonFri.toggle()
+                    isRepeatedOnFri.toggle()
                 } label: {
                     Text("Fri")
-                    .foregroundColor(isRepeatedonFri ? .white : .primary)
+                    .foregroundColor(isRepeatedOnFri ? .white : .primary)
                     .frame(width: 40, height: 40)
-                    .background(isRepeatedonFri ? Color.accentColor : Color(.tertiarySystemFill))
+                    .background(isRepeatedOnFri ? Color.accentColor : Color(.tertiarySystemFill))
                     .cornerRadius(8)
                 }
                 
                 Button {
-                    isRepeatedonSat.toggle()
+                    isRepeatedOnSat.toggle()
                 } label: {
                     Text("Sat")
-                    .foregroundColor(isRepeatedonSat ? .white : .primary)
+                    .foregroundColor(isRepeatedOnSat ? .white : .primary)
                     .frame(width: 40, height: 40)
-                    .background(isRepeatedonSat ? Color.accentColor : Color(.tertiarySystemFill))
+                    .background(isRepeatedOnSat ? Color.accentColor : Color(.tertiarySystemFill))
                     .cornerRadius(8)
                 }
 
             }
             
             Button(action: {
-                isRepeatedonSun = true
-                isRepeatedonMon = true
-                isRepeatedonTue = true
-                isRepeatedonWed = true
-                isRepeatedonThu = true
-                isRepeatedonFri = true
-                isRepeatedonSat = true
+                isRepeatedOnSun = true
+                isRepeatedOnMon = true
+                isRepeatedOnMon = true
+                isRepeatedOnWed = true
+                isRepeatedOnThu = true
+                isRepeatedOnFri = true
+                isRepeatedOnSat = true
 
             }) {
                 Text("Every Day")
@@ -120,16 +122,16 @@ struct CreateHabitView: View {
                     .cornerRadius(10)
             }
             
-            
-            
-            Button(action: createHabit) {
+            Button(action: {
+                coreDataHelper.createHabit(context: context, name: habitName, isRepeatedOnSun: isRepeatedOnSun, isRepeatedOnMon: isRepeatedOnMon, isRepeatedOnTue: isRepeatedOnTue, isRepeatedOnWed: isRepeatedOnWed, isRepeatedOnThu: isRepeatedOnThu, isRepeatedOnFri: isRepeatedOnFri, isRepeatedOnSat: isRepeatedOnSat)
+            }, label: {
                 Text("Create New Habit")
                     .foregroundColor(.white)
                     .padding(.horizontal, 20)
                     .padding(.vertical, 10)
                     .background(Color.green)
                     .cornerRadius(10)
-            }
+            })
             .padding(.top, 20)
             
             Spacer()
@@ -139,26 +141,7 @@ struct CreateHabitView: View {
     
 
     
-     func createHabit() {
-        let newHabit = Habit(context: viewContext)
-        newHabit.id = UUID()
-        newHabit.name = habitName
-        newHabit.isRepeatedOnSun = isRepeatedonSun
-        newHabit.isRepeatedOnMon = isRepeatedonMon
-        newHabit.isRepeatedOnTue = isRepeatedonTue
-        newHabit.isRepeatedOnWed = isRepeatedonWed
-        newHabit.isRepeatedOnThu = isRepeatedonThu
-        newHabit.isRepeatedOnFri = isRepeatedonFri
-        newHabit.isRepeatedOnSat = isRepeatedonSat
-        
-        do {
-            try newHabit.managedObjectContext?.save()
-        } catch let error {
-            print("Error saving context: \(error.localizedDescription)")
-        }
-         
-         print("Habit Created")
-    }
+     
 }
 
 struct CreateHabitView_Previews: PreviewProvider {
