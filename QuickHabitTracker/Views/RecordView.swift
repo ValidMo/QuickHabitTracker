@@ -9,7 +9,7 @@ import SwiftUI
 import CoreData
 
 
-struct DayRecordView: View {
+struct RecordView: View {
     
     @State var day: Int
     @State var month: Int
@@ -18,7 +18,7 @@ struct DayRecordView: View {
     @State var showAddRecordView: Bool = false
     
     @Environment(\.managedObjectContext) var context
-    @State private var records: [DayRecord] = []
+    @State private var records: [Record] = []
     @State private var habits: [Habit] = []
     
     let coreDataHelper = CoreDataHelper.shared
@@ -26,6 +26,7 @@ struct DayRecordView: View {
     var body: some View {
        
            List {
+               /*
                 Section("Day Records"){
                     
                     VStack{
@@ -68,6 +69,7 @@ struct DayRecordView: View {
                         }
                     }
                 }
+                */
                 Section("Day's Habits"){
                     VStack{
                         ForEach(habits){ habit in
