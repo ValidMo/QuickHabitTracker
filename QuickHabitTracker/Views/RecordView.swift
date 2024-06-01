@@ -1,5 +1,5 @@
 //
-//  DayRecordView.swift
+//  RecordView.swift
 //  QuickHabitTracker
 //
 //  Created by Valid Mohammadi on 8.05.2024.
@@ -15,7 +15,6 @@ struct RecordView: View {
     @State var month: Int
     @State var year: Int
     
-    @State var showAddRecordView: Bool = false
     
     @Environment(\.managedObjectContext) var context
     @State private var records: [Record] = []
@@ -26,62 +25,72 @@ struct RecordView: View {
     var body: some View {
        
            List {
-               /*
+               
                 Section("Day Records"){
-                    
-                    VStack{
-                        if !records.isEmpty{
-                            ForEach(records){ record in
-                                if let allHabits = record.allHabits {
-                                    ForEach(allHabits, id: \.self) { habit in
-                                        HStack{
-                                            Button(habit){
-                                                coreDataHelper.addHabitToDoneHabits(habit: habit, record: record)
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                            Divider()
-                            ForEach(records){ record in
-                                if let doneRecords = record.doneHabits {
-                                    ForEach(doneRecords, id: \.self){ record in
-                                        HStack{
-                                            Text(record)
-                                        }
-                                    }
+                    if !records.isEmpty{
+                        
+                        ForEach(records){ record in
+                            if let doneHabits = record.doneHabits {
+                                ForEach(doneHabits, id: \.self) { habit in
+                                    Text(habit)
                                 }
                                 
                             }
-                            
+                            else {
+                                Text("No Done Habit found in record!")
+                            }
+                        }
+                    
+                            Divider()
                         }
                         else {
                             HStack{
-                                Text("No records ")
-                                Spacer()
-                                Button( action: {
-                                    showAddRecordView.toggle()
-                                    print("Add Record")
-                                }, label:{
-                                    Image(systemName: "plus")
-                                })
+                                Text("No Record Found, to add record click on habits list below ")
+                                    .italic()
+                                    .foregroundStyle(.gray)
+                            }
+                        }
+                    
+                }
+                
+                Section("Day's Habits"){
+                    VStack{
+                        if !habits.isEmpty{
+                        ForEach(habits){ habit in
+                            Button(habit.name) {
+                                if let record = checkForRecordedDay(day: day, month: month, year: year, context: context).first {
+                                    if var doneHabits = record.doneHabits  {
+                                        if !doneHabits.contains((habit.name).lowercased()) {
+                                            doneHabits.append((habit.name).lowercased())
+                                            record.doneHabits = doneHabits
+                                            do {
+                                                try context.save()
+                                            } catch {
+                                                print("Error saving context: \(error)")
+                                            }
+                                        } else {
+                                            print("\(habit.name) is already in doneHabits")
+                                        }
+                                    } else {
+                                        print("Unable to cast doneHabits to NSMutableArray")
+                                    }
+                                } else {
+                                    coreDataHelper.createRecord(habit: habit, context: context, day: day, month: month, year: year)
+                                    print("Record Created")
+                                }
                             }
                         }
                     }
-                }
-                */
-                Section("Day's Habits"){
-                    VStack{
-                        ForEach(habits){ habit in
-                            Text("\(habit.name)")
+                        else {
+                            Text("No Habits found for today!")
+                                .italic()
+                                .foregroundStyle(.gray)
                         }
                     }
                 }
                 
            }
-           .sheet(isPresented: $showAddRecordView, content: {
-               CreateRecordView(habits: $habits, day: $day, month: $month, year: $year)
-           })
+          
            .padding(.top, 0)
 
         

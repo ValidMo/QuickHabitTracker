@@ -104,7 +104,7 @@ struct HomeView: View {
                 }
             }
             .sheet(isPresented: $showCreateHabitView) {
-                CreateHabitView()
+                CreateHabitView(showCreateHabitView: $showCreateHabitView)
             }
            
             .navigationTitle("Today's Habits")

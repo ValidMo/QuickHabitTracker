@@ -7,6 +7,7 @@
 
 import Foundation
 
+/*
 @objc(AllHabitsTransformer)
 class AllHabitsTransformer: ValueTransformer {
     
@@ -38,6 +39,7 @@ class AllHabitsTransformer: ValueTransformer {
         }
     }
 }
+ */
 
 
 

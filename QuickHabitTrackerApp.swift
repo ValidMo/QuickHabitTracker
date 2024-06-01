@@ -27,6 +27,6 @@ struct QuickHabitTrackerApp: App {
     
     private func registerTransformers() {
            ValueTransformer.setValueTransformer(DoneHabitsTransformer(), forName: NSValueTransformerName(rawValue: "DoneHabitsTransformer"))
-           ValueTransformer.setValueTransformer(AllHabitsTransformer(), forName: NSValueTransformerName(rawValue: "AllHabitsTransformer"))
+//           ValueTransformer.setValueTransformer(AllHabitsTransformer(), forName: NSValueTransformerName(rawValue: "AllHabitsTransformer"))
        }
 }

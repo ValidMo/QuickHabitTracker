@@ -11,27 +11,18 @@ import CoreData
 class CoreDataHelper: ObservableObject {
     static let shared = CoreDataHelper()
     
-    
     lazy var persistentContainer: NSPersistentContainer = {
-        
-        
         let container = NSPersistentContainer(name: "model")
-        
-        
         container.loadPersistentStores { _, error in
             if let error {
-                
                 fatalError("Failed to load persistent stores: \(error.localizedDescription)")
             }
         }
         return container
     }()
     
-    private init() { }
-    
-    
-    
-    
+    private init() {}
+
     func save() {
         
         guard persistentContainer.viewContext.hasChanges else { return }
@@ -59,13 +50,9 @@ class CoreDataHelper: ObservableObject {
        newHabit.isRepeatedOnFri = isRepeatedOnFri
        newHabit.isRepeatedOnSat = isRepeatedOnSat
        
-       do {
-           try newHabit.managedObjectContext?.save()
-       } catch let error {
-           print("Error saving context: \(error.localizedDescription)")
-       }
+       save()
         
-        print("Habit Created")
+       print("Habit Created")
    }
     
     func deleteHabit(habit: Habit) {
@@ -73,11 +60,9 @@ class CoreDataHelper: ObservableObject {
         let context = persistentContainer.viewContext
         context.delete(habit)
         
-        do {
-            try context.save()
-        } catch {
-            print("Failed to delete habit: \(error.localizedDescription)")
-        }
+        save()
+        
+        print("Habit deleted")
         
     }
 
@@ -92,20 +77,16 @@ class CoreDataHelper: ObservableObject {
         habit.isRepeatedOnFri = isRepeatedOnFri
         habit.isRepeatedOnSat = isRepeatedOnSat
         
-        let context = persistentContainer.viewContext
+       save()
         
-        do {
-            try context.save()
-        } catch {
-            print("Failed to edit habit: \(error.localizedDescription)")
-        }
+        print("Habit edited")
     }
     
     
-    //MARK: - Functions related to "DayRecord"
+    //MARK: - Functions related to "Record"
     
-    func createRecord(habits: [Habit], habit: Habit, context: NSManagedObjectContext, day: Int, month: Int, year: Int) {
-        let record = DayRecord(context: context)
+    func createRecord(habit: Habit, context: NSManagedObjectContext, day: Int, month: Int, year: Int) {
+        let record = Record(context: context)
         let calendar = Calendar.current
         var dateComponents = DateComponents()
         dateComponents.day = day
@@ -119,52 +100,36 @@ class CoreDataHelper: ObservableObject {
         
         record.date = date
         record.doneHabits = [habit.name.lowercased()]
-        record.allHabits = habits.map { $0.name }
+       
         
-        do {
-            
-            try record.managedObjectContext?.save()
-            
-        } catch let error {
-            print("Error saving context: \(error.localizedDescription)")
-        }
+       save()
+        
+        print("Record Created")
         
     }
     
-    func deleteRecord(record: DayRecord){
+    func deleteRecord(record: Record){
         let context = persistentContainer.viewContext
         context.delete(record)
         
-        do {
-            try context.save()
-        } catch {
-            print("Failed to delete record: \(error.localizedDescription)")
-        }
+        save()
+        
+        print("Record Deleted")
         
     }
     
-    func deleteHabitFromRecordsDoneHabits(record: DayRecord, habit: String){
+    func deleteHabitFromRecordsDoneHabits(record: Record, habit: String){
         
         if var doneHabits = record.doneHabits {
             doneHabits.removeAll{ $0.lowercased() == habit.lowercased()}
             record.doneHabits = doneHabits
         }
         else {
-            print("no doneHabits on record!")
+            deleteRecord(record: record)
         }
-        
-        let context = persistentContainer.viewContext
-        
-        do {
-            try context.save()
-        } catch {
-            print("Failed to delete habit from done habits: \(error.localizedDescription)")
-        }
-
-       
     }
     
-    func addHabitToDoneHabits(habit: String, record: DayRecord){
+    func addHabitToDoneHabits(habit: String, record: Record){
         
         if let doneHabits = record.doneHabits{
             if !doneHabits.contains(habit.lowercased()){
@@ -175,16 +140,39 @@ class CoreDataHelper: ObservableObject {
             }
         }
         
-        let context = persistentContainer.viewContext
-        
-        do {
-            try context.save()
-            
-        } catch let error {
-            print("Error while adding habit to doneHabits: \(error.localizedDescription)")
-        }
+        save()
     }
     
+    
+    
+    
+    /*
+     if let record = checkForRecordedDay(day: day, month: month, year: year, context: context).first {
+             if var doneHabits = record.doneHabits  {
+                 if !doneHabits.contains((habit.name).lowercased()) {
+                     doneHabits.append((habit.name).lowercased())
+                     record.doneHabits = doneHabits
+                     do {
+                         try context.save()
+                     } catch {
+                         print("Error saving context: \(error)")
+                     }
+                 } else {
+                     print("\(habit.name) is already in doneHabits")
+                 }
+             } else {
+                 print("Unable to cast doneHabits to NSMutableArray")
+             }
+        
+//                        else {
+//                            print("No tracked habits found for the specified date")
+//                        }
+     } else {
+        // createRecord(habits: habits, habit: habit)
+         coreDataHelper.createRecord(habits: habits, habit: habit, context: context, day: day, month: month, year: year)
+         print("Record Created")
+     }
+     */
     
     
     

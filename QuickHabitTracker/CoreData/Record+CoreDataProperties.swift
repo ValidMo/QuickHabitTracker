@@ -16,8 +16,8 @@ extension Record {
         return NSFetchRequest<Record>(entityName: "Record")
     }
 
-    @NSManaged public var date: Date?
-    @NSManaged public var doneHabits: NSObject?
+    @NSManaged public var date: Date
+    @NSManaged public var doneHabits: [String]?
 
 }
 

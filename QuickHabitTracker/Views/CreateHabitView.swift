@@ -23,9 +23,16 @@ struct CreateHabitView: View {
     
     let coreDataHelper = CoreDataHelper.shared
     
+    @Binding var showCreateHabitView: Bool
+    
 
     var body: some View {
         VStack(spacing: 20) {
+            
+            Text("Create a Habit")
+                .font(.largeTitle)
+                .fontWeight(.bold)
+            
             TextField("Habit Name", text: $habitName)
                 .padding()
                 .background(Color(.secondarySystemBackground))
@@ -107,7 +114,7 @@ struct CreateHabitView: View {
             Button(action: {
                 isRepeatedOnSun = true
                 isRepeatedOnMon = true
-                isRepeatedOnMon = true
+                isRepeatedOnTue = true
                 isRepeatedOnWed = true
                 isRepeatedOnThu = true
                 isRepeatedOnFri = true
@@ -124,14 +131,17 @@ struct CreateHabitView: View {
             
             Button(action: {
                 coreDataHelper.createHabit(context: context, name: habitName, isRepeatedOnSun: isRepeatedOnSun, isRepeatedOnMon: isRepeatedOnMon, isRepeatedOnTue: isRepeatedOnTue, isRepeatedOnWed: isRepeatedOnWed, isRepeatedOnThu: isRepeatedOnThu, isRepeatedOnFri: isRepeatedOnFri, isRepeatedOnSat: isRepeatedOnSat)
+                
+                showCreateHabitView.toggle()
             }, label: {
-                Text("Create New Habit")
+                Text("Create Habit")
                     .foregroundColor(.white)
                     .padding(.horizontal, 20)
                     .padding(.vertical, 10)
-                    .background(Color.green)
+                    .background((habitName.isEmpty) ? Color.green.opacity(0.4) : Color.green)
                     .cornerRadius(10)
             })
+            .disabled(habitName.isEmpty)
             .padding(.top, 20)
             
             Spacer()
@@ -146,8 +156,10 @@ struct CreateHabitView: View {
 
 struct CreateHabitView_Previews: PreviewProvider {
     static var previews: some View {
-        CreateHabitView()
+        CreateHabitView(showCreateHabitView: .constant(false))
     }
 }
+
+
 
 

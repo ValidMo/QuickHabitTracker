@@ -31,7 +31,7 @@ struct DaysOfMonthView: View {
                                    , GridItem(.flexible())
                                    , GridItem(.flexible())], spacing: 8) {
                    ForEach(days, id: \.self) { day in
-                       NavigationLink(destination: DayRecordView(day: day, month: getMonthNumber(from: month), year: currentYear)) {
+                       NavigationLink(destination: RecordView(day: day, month: getMonthNumber(from: month), year: currentYear)) {
                            Text("\(day)")
                                .foregroundColor(.white)
                                .frame(width: 30, height: 30)

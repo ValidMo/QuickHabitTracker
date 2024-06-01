@@ -74,9 +74,9 @@ func fetchRequest(day: Int, month: Int, year: Int, context: NSManagedObjectConte
 
 
 
-func fetchRequestForTrackedHabits(day: Int, month: Int, year: Int, context: NSManagedObjectContext) -> NSFetchRequest<DayRecord>? {
+func fetchRequestForTrackedHabits(day: Int, month: Int, year: Int, context: NSManagedObjectContext) -> NSFetchRequest<Record>? {
     
-    let request: NSFetchRequest<DayRecord> = NSFetchRequest<DayRecord>(entityName: "DayRecord")
+    let request: NSFetchRequest<Record> = NSFetchRequest<Record>(entityName: "Record")
     
     let calendar = Calendar.current
     
@@ -153,6 +153,28 @@ func getMonthAsInt() -> Int {
     print("***")
 
     return components.month ?? 2
+}
+
+func checkForRecordedDay(day: Int, month: Int, year: Int, context: NSManagedObjectContext) -> [Record] {
+
+   
+    if let request = fetchRequestForTrackedHabits(day: day, month: month, year: year, context: context){
+        do {
+           let records = try context.fetch(request)
+            print("Fetched records: \(records.count)")
+            return records
+        }
+        catch {
+            print("Error fetching data: \(error)")
+           return []
+        }
+        
+    }
+    else {
+        print("bad request while fetching TrackedDays")
+       return []
+    }
+    
 }
 
 
