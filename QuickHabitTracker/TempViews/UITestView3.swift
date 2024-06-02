@@ -6,12 +6,38 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct UITestView3: View {
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Button("Tap") {
+            print("Normal Tap")
+        }
+        .padding()
+        .border(Color.blue, width: 1)
+        .cornerRadius(15)
+        
+        .highPriorityGesture(
+            TapGesture()
+                .onEnded { _ in
+                    print("Tap")
+                }
+        )
+        .contextMenu {
+            Button("Delete", role: .destructive) {
+                print("Delete")
+            }
+            Button(action: {
+                print("Edit")
+            }) {
+                Text("Edit")
+            }
+          
+        }
     }
 }
+
 
 #Preview {
     UITestView3()

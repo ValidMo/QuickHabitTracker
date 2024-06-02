@@ -18,7 +18,7 @@ struct QuickHabitTrackerApp: App {
     
     var body: some Scene {
         WindowGroup {
-           ContentView()
+           UITestView2  ()
                 //.defaultAppStorage(UserDefaults(suiteName: "group.com.devNoyan.QuickHabitTracker")!)
               .environment(\.managedObjectContext, coreDataHelper.persistentContainer.viewContext)
         }
