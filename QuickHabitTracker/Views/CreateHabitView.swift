@@ -45,7 +45,7 @@ struct CreateHabitView: View {
                     Text("Sun")
                     .foregroundColor(isRepeatedOnSun ? .white : .primary)
                     .frame(width: 40, height: 40)
-                    .background(isRepeatedOnSun ? Color.accentColor : Color(.tertiarySystemFill))
+                    .background(isRepeatedOnSun ? Color.customGreen : Color(.tertiarySystemFill))
                     .cornerRadius(8)
                 }
                 
@@ -55,7 +55,7 @@ struct CreateHabitView: View {
                     Text("Mon")
                     .foregroundColor(isRepeatedOnMon ? .white : .primary)
                     .frame(width: 40, height: 40)
-                    .background(isRepeatedOnMon ? Color.accentColor : Color(.tertiarySystemFill))
+                    .background(isRepeatedOnMon ? Color.customGreen : Color(.tertiarySystemFill))
                     .cornerRadius(8)
                 }
                 
@@ -65,7 +65,7 @@ struct CreateHabitView: View {
                     Text("Tue")
                     .foregroundColor(isRepeatedOnTue ? .white : .primary)
                     .frame(width: 40, height: 40)
-                    .background(isRepeatedOnTue ? Color.accentColor : Color(.tertiarySystemFill))
+                    .background(isRepeatedOnTue ? Color.customGreen : Color(.tertiarySystemFill))
                     .cornerRadius(8)
                 }
                 
@@ -75,7 +75,7 @@ struct CreateHabitView: View {
                     Text("Wed")
                     .foregroundColor(isRepeatedOnWed ? .white : .primary)
                     .frame(width: 40, height: 40)
-                    .background(isRepeatedOnWed ? Color.accentColor : Color(.tertiarySystemFill))
+                    .background(isRepeatedOnWed ? Color.customGreen : Color(.tertiarySystemFill))
                     .cornerRadius(8)
                 }
                 
@@ -85,7 +85,7 @@ struct CreateHabitView: View {
                     Text("Thu")
                     .foregroundColor(isRepeatedOnThu ? .white : .primary)
                     .frame(width: 40, height: 40)
-                    .background(isRepeatedOnThu ? Color.accentColor : Color(.tertiarySystemFill))
+                    .background(isRepeatedOnThu ? Color.customGreen : Color(.tertiarySystemFill))
                     .cornerRadius(8)
                 }
                 
@@ -95,7 +95,7 @@ struct CreateHabitView: View {
                     Text("Fri")
                     .foregroundColor(isRepeatedOnFri ? .white : .primary)
                     .frame(width: 40, height: 40)
-                    .background(isRepeatedOnFri ? Color.accentColor : Color(.tertiarySystemFill))
+                    .background(isRepeatedOnFri ? Color.customGreen : Color(.tertiarySystemFill))
                     .cornerRadius(8)
                 }
                 
@@ -105,7 +105,7 @@ struct CreateHabitView: View {
                     Text("Sat")
                     .foregroundColor(isRepeatedOnSat ? .white : .primary)
                     .frame(width: 40, height: 40)
-                    .background(isRepeatedOnSat ? Color.accentColor : Color(.tertiarySystemFill))
+                    .background(isRepeatedOnSat ? Color.customGreen : Color(.tertiarySystemFill))
                     .cornerRadius(8)
                 }
 
@@ -125,7 +125,7 @@ struct CreateHabitView: View {
                     .foregroundColor(.white)
                     .padding(.horizontal, 20)
                     .padding(.vertical, 10)
-                    .background(Color.accentColor)
+                    .background(Color.customGreen)
                     .cornerRadius(10)
             }
             
@@ -136,6 +136,7 @@ struct CreateHabitView: View {
             }, label: {
                 Text("Create Habit")
                     .foregroundColor(.white)
+                    .fontWeight(.bold)
                     .padding(.horizontal, 20)
                     .padding(.vertical, 10)
                     .background((habitName.isEmpty) ? Color.green.opacity(0.4) : Color.green)

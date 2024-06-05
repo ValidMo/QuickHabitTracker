@@ -31,8 +31,8 @@ struct MonthsOfYearView: View {
           .foregroundColor(Color.white)
           .font(.headline)
           .frame(minWidth: 0, maxWidth: 40, minHeight: 40)
-          .background(selectedMonth == month ? Color.green : (canSelectMonth(month: month) ? Color.blue : Color.gray.opacity(0.3)))
-          .cornerRadius(40)
+          .background(selectedMonth == month ? Color.customGreen : (canSelectMonth(month: month) ? Color.green : Color.gray.opacity(0.3)))
+          .cornerRadius(10)
           .padding(15)
           .disabled(!canSelectMonth(month: month))
         }
@@ -92,25 +92,27 @@ struct DaysOfMonthView2: View {
                
                LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())
                                    , GridItem(.flexible())
-                                   , GridItem(.flexible())], spacing: 8) {
+                                   ], spacing: 4) {
                    ForEach(days, id: \.self) { day in
-                       if !canSelectDay(day: day) {
+                    //   if canSelectDay(day: day, month: month) {
                            NavigationLink(destination: RecordView(day: day, month: getMonthNumber(from: month), year: currentYear)) {
                                Text("\(day)")
                                    .foregroundColor(.white)
                                    .frame(width: 30, height: 30)
-                                   .background((selectedDay == day && selectedMonth == getMonthAsInt()) ? Color.green : ((selectedDay < day && selectedMonth == getMonthAsInt())) ? Color.gray : Color.blue)
-                                   .cornerRadius(40)
-                                   .padding(15)
+                                   .background((selectedDay == day && selectedMonth == getMonthAsInt()) ? Color.customGreen : ((selectedDay < day && selectedMonth == getMonthAsInt())) ? Color.gray.opacity(0.3) : Color.green)
+                                   .cornerRadius(10)
+                                   .padding(10)
                            }
-                       } else {
+                    //   } else {
+                           /*
                            Text("\(day)")
                                .foregroundColor(.white)
                                .frame(width: 30, height: 30)
                                .background(Color.gray.opacity(0.3))
-                               .cornerRadius(40)
+                               .cornerRadius(10)
                                .padding(15)
                        }
+                            */
                    }
                }
                                    .onAppear{
@@ -132,11 +134,24 @@ struct DaysOfMonthView2: View {
 
 }
 
-func canSelectDay(day: Int) -> Bool {
+func canSelectDay(day: Int, month: String) -> Bool {
     let calendar = Calendar.current
     let currentDay = calendar.component(.day, from: Date())
-    return day > currentDay
+    let currentMonth = calendar.component(.month, from: Date())
     
+    let monthAsInt = getMonthAsInt()
+    if monthAsInt < currentMonth {
+        return true
+    }
+    else if (monthAsInt == currentMonth && day <= currentDay) {
+        return true
+    }
+    return false
+    
+}
+
+extension Color {
+    static let customGreen = Color(red: 0/255, green: 108/255, blue: 15/255)
 }
 
 
