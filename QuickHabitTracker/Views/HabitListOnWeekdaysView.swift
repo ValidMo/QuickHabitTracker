@@ -12,30 +12,98 @@ struct HabitListOnWeekdaysView: View {
     
     @FetchRequest(sortDescriptors: []) var habits: FetchedResults<Habit>
     
-    let weekdays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
-    
+    let weekdays = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
     var body: some View {
-        
-        List{
+        NavigationStack{
+        LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())], spacing: 50){
+            
             ForEach(weekdays, id: \.self){ weekday in
-                Section(header: Text(weekday).font(.headline)){
-                    
-                    let filteredHabits = filterHabits(for: weekday)
-                    ForEach(filteredHabits, id: \.self){ habit in
-                        HStack{
-                            Text(habit.name)
+                let filteredHabits = filterHabits(for: weekday)
+                if !filteredHabits.isEmpty{
+                    VStack(alignment: .leading){
+                        
+                        Text("\(weekday)")
+                            .fontWeight(.semibold)
+                            .foregroundColor(.black)
+                        Divider()
+                            .frame(width: 40)
+                        ForEach(filteredHabits, id: \.self){ habit in
+                            ScrollView(.vertical, showsIndicators: false){
+                                VStack(alignment: .leading){
+                                    Text("\(habit.name)")
+                                        .italic(true)
+                                        .foregroundColor(.gray)
+                                }
+                            }
                         }
                     }
+                }
+                else {
                     
+                    VStack(alignment: .leading){
+                        
+                        Text("\(weekday)")
+                            .fontWeight(.semibold)
+                            .foregroundColor(.green)
+                        Divider()
+                        
+                            .frame(width: 40)
+                        ScrollView(.vertical, showsIndicators: false){
+                            VStack(alignment: .leading){
+                                Text("No habits set for \(weekday)")
+                                    .italic(true)
+                                    .foregroundColor(.gray)
+                                
+                            }
+                        }
+                        .frame(width: 100, height: 100)
+                    }
+                    .padding()
                     
                 }
             }
+            
+          
         }
-        .navigationTitle("Habit List")
-        //.listStyle(GroupedListStyle())
-        
-        
+        .toolbar {
+            
+            /*
+            ToolbarItem(placement: .navigationBarLeading) {
+                    Text("Weekly")
+                    .font(.title2)
+                    .fontWeight(.bold)
+                    .foregroundStyle(.green)
+               
+                  }
+            */
+            
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button(action: {
+                }, label: {
+                    HStack{
+                        Text("Habit List")
+                        Image(systemName: "list.bullet.circle")
+                            .fontWeight(.semibold)
+
+                    }
+                    .foregroundStyle(.green)
+                }
+                  
+                )
+                    
+                
+                   
+               
+                  }
+           
+        }
+            Spacer()
+       .navigationTitle("Weekly Plan")
     }
+       
+    }
+    
+    //
     private func filterHabits(for weekday: String) -> [Habit] {
         
         let shortWeekday = weekday.prefix(3).lowercased()
@@ -62,5 +130,26 @@ struct HabitListOnWeekdaysView: View {
 }
 
 #Preview {
-    HabitListOnWeekdaysView()
+  HabitListOnWeekdaysView()
+
+    
 }
+
+
+/* List{
+ ForEach(weekdays, id: \.self){ weekday in
+     Section(header: Text(weekday).font(.headline)){
+         
+         let filteredHabits = filterHabits(for: weekday)
+         ForEach(filteredHabits, id: \.self){ habit in
+             HStack{
+                 Text(habit.name)
+             }
+         }
+         
+         
+     }
+ }
+}*/
+
+

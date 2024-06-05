@@ -18,9 +18,10 @@ struct QuickHabitTrackerApp: App {
     
     var body: some Scene {
         WindowGroup {
-           UITestView2  ()
+           ContentView()
                 //.defaultAppStorage(UserDefaults(suiteName: "group.com.devNoyan.QuickHabitTracker")!)
               .environment(\.managedObjectContext, coreDataHelper.persistentContainer.viewContext)
+              .accentColor(.customGreen)
         }
     
     }

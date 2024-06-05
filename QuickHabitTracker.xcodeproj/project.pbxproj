@@ -21,6 +21,7 @@
 		0D5E1CE22C0B1C360050830D /* HelperStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5E1CE12C0B1C360050830D /* HelperStructs.swift */; };
 		0D60E2FC2BF5F2E1009D8614 /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D60E2FB2BF5F2E1009D8614 /* HelperFunctions.swift */; };
 		0D60E2FF2BF6646D009D8614 /* UITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D60E2FE2BF6646D009D8614 /* UITest.swift */; };
+		0D6658262C10E47D00337A9D /* HabitListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6658252C10E47D00337A9D /* HabitListView.swift */; };
 		0D66AD732BE2B5B2002AD8B0 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D66AD722BE2B5B2002AD8B0 /* CoreDataHelper.swift */; };
 		0D77714C2BEB6FCC00415574 /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D77714B2BEB6FCC00415574 /* RecordView.swift */; };
 		0D79C5952C0CC3A500A0B1C6 /* GithubLikeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D79C5942C0CC3A500A0B1C6 /* GithubLikeView.swift */; };
@@ -84,6 +85,7 @@
 		0D5E1CE12C0B1C360050830D /* HelperStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperStructs.swift; sourceTree = "<group>"; };
 		0D60E2FB2BF5F2E1009D8614 /* HelperFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperFunctions.swift; sourceTree = "<group>"; };
 		0D60E2FE2BF6646D009D8614 /* UITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITest.swift; sourceTree = "<group>"; };
+		0D6658252C10E47D00337A9D /* HabitListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitListView.swift; sourceTree = "<group>"; };
 		0D66AD722BE2B5B2002AD8B0 /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
 		0D77714B2BEB6FCC00415574 /* RecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
 		0D79C5942C0CC3A500A0B1C6 /* GithubLikeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubLikeView.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 				0D77714B2BEB6FCC00415574 /* RecordView.swift */,
 				0DA74FFA2BE6339A0009B1DF /* CreateHabitView.swift */,
 				0D37075A2C05AB8E00F3D9E3 /* SettingsView.swift */,
+				0D6658252C10E47D00337A9D /* HabitListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -355,6 +358,7 @@
 				0D60E2FF2BF6646D009D8614 /* UITest.swift in Sources */,
 				0DEDC2D32C008D510029C637 /* HabitListOnWeekdaysView.swift in Sources */,
 				0D79C5952C0CC3A500A0B1C6 /* GithubLikeView.swift in Sources */,
+				0D6658262C10E47D00337A9D /* HabitListView.swift in Sources */,
 				0D77714C2BEB6FCC00415574 /* RecordView.swift in Sources */,
 				0DF496A12BD977DA00AF0590 /* QuickHabitTrackerApp.swift in Sources */,
 				0D5E1CE22C0B1C360050830D /* HelperStructs.swift in Sources */,

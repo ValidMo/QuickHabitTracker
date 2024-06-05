@@ -15,15 +15,17 @@ struct ContentView: View {
         .tabItem {
           Label("Home", systemImage: "house")
         }
+        
         HabitListOnWeekdaysView()
         .tabItem {
-          Label("Habits List", systemImage: "list.number")
+          Label("Habits List", systemImage: "list.bullet")
         }
       MonthsOfYearView()
         .tabItem {
           Label("Records", systemImage: "calendar")
         }
     }
+    .accentColor(.customGreen)
   }
 }
 
