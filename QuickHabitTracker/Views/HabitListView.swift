@@ -6,13 +6,41 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct HabitListView: View {
+    @FetchRequest(sortDescriptors: []) var habits: FetchedResults<Habit>
+    let coreDataHelper = CoreDataHelper.shared
+    
+    @State var showEditHabitListView: Bool = false
+    
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            List {
+                ForEach(habits) { habit in
+                    NavigationLink(destination: {
+                        EditHabitView(habit: habit)
+                    }, label: {
+                        HStack{
+                            Text("\(habit.name)")
+                        }
+                    })
+                }
+                .onDelete(perform: deleteHabit)
+                
+                
+                .navigationTitle("Habits")
+            }
+        }
     }
-}
-
-#Preview {
-    HabitListView()
+    
+    private func deleteHabit(at offsets: IndexSet) {
+        offsets.forEach { index in
+            let habit = habits[index]
+            coreDataHelper.deleteHabit(habit: habit)
+        }
+    }
+    
+    
 }

@@ -105,7 +105,7 @@ struct PressableButtonStyle: ButtonStyle {
     
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .frame(width: .infinity, height: 1)
+            .frame(height: 1)
             .foregroundColor(.white)
             .padding()
             .background(

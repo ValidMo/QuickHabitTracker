@@ -15,27 +15,32 @@ struct HabitListOnWeekdaysView: View {
     let weekdays = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
     var body: some View {
         NavigationStack{
-        LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())], spacing: 50){
+            Divider()
+        LazyVGrid(columns: [GridItem(.fixed(120)), GridItem(.fixed(120)), GridItem(.fixed(120))], spacing: 70){
             
             ForEach(weekdays, id: \.self){ weekday in
                 let filteredHabits = filterHabits(for: weekday)
                 if !filteredHabits.isEmpty{
                     VStack(alignment: .leading){
-                        
+                    
                         Text("\(weekday)")
                             .fontWeight(.semibold)
-                            .foregroundColor(.black)
+                            .foregroundColor(.green)
+                            
                         Divider()
                             .frame(width: 40)
+                        ScrollView(.vertical, showsIndicators: false){
                         ForEach(filteredHabits, id: \.self){ habit in
-                            ScrollView(.vertical, showsIndicators: false){
                                 VStack(alignment: .leading){
                                     Text("\(habit.name)")
                                         .italic(true)
                                         .foregroundColor(.gray)
+                                        .lineLimit(1)
                                 }
+                               // .frame(maxWidth: .infinity, maxHeight: 100)
                             }
                         }
+                        .frame(height: 100)
                     }
                 }
                 else {
@@ -53,10 +58,9 @@ struct HabitListOnWeekdaysView: View {
                                 Text("No habits set for \(weekday)")
                                     .italic(true)
                                     .foregroundColor(.gray)
-                                
                             }
                         }
-                        .frame(width: 100, height: 100)
+                     
                     }
                     .padding()
                     
@@ -67,18 +71,29 @@ struct HabitListOnWeekdaysView: View {
         }
         .toolbar {
             
-            /*
             ToolbarItem(placement: .navigationBarLeading) {
-                    Text("Weekly")
-                    .font(.title2)
-                    .fontWeight(.bold)
-                    .foregroundStyle(.green)
-               
-                  }
-            */
+                Text("Weekly Plan")
+                .padding()
+                .bold()
+                .font(.title3)
+            }
+            
+            ToolbarItem(placement: .status) {
+                Button(action: {
+                  //  showCreateHabitView.toggle()
+                }) {
+                    Text("Add Habit")
+                        .foregroundStyle(Color.green)
+                    Image(systemName: "plus.circle")
+                        .foregroundStyle(Color.green)
+                }
+                .padding()
+                .bold()
+            }
             
             ToolbarItem(placement: .navigationBarTrailing) {
-                Button(action: {
+                NavigationLink(destination: {
+                    HabitListView()
                 }, label: {
                     HStack{
                         Text("Habit List")
@@ -98,7 +113,8 @@ struct HabitListOnWeekdaysView: View {
            
         }
             Spacer()
-       .navigationTitle("Weekly Plan")
+      
+  
     }
        
     }
