@@ -10,7 +10,11 @@ import CoreData
 
 struct HabitListOnWeekdaysView: View {
     
+    
+    
     @FetchRequest(sortDescriptors: []) var habits: FetchedResults<Habit>
+    
+    @State private var showCreateHabitView: Bool = false
     
     let weekdays = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
     var body: some View {
@@ -25,7 +29,7 @@ struct HabitListOnWeekdaysView: View {
                     
                         Text("\(weekday)")
                             .fontWeight(.semibold)
-                            .foregroundColor(.green)
+                            .foregroundColor((weekday.lowercased() == whichDayOfWeek()?.lowercased()) ? .green : .black)
                             
                         Divider()
                             .frame(width: 40)
@@ -49,7 +53,7 @@ struct HabitListOnWeekdaysView: View {
                         
                         Text("\(weekday)")
                             .fontWeight(.semibold)
-                            .foregroundColor(.green)
+                            .foregroundColor((weekday.lowercased() == whichDayOfWeek()?.lowercased()) ? .green : .black)
                         Divider()
                         
                             .frame(width: 40)
@@ -58,8 +62,20 @@ struct HabitListOnWeekdaysView: View {
                                 Text("No habits set for \(weekday)")
                                     .italic(true)
                                     .foregroundColor(.gray)
+                                    .lineLimit(1)
+                                
+                                Text("lorem apsum adhjadhf")
+                                    .italic(true)
+                                    .foregroundColor(.gray)
+                                    .lineLimit(1)
+                                
+                                Text("lorem asjhd askjah")
+                                    .italic(true)
+                                    .foregroundColor(.gray)
+                                    .lineLimit(1)
                             }
                         }
+                        .frame(height: 100)
                      
                     }
                     .padding()
@@ -70,20 +86,21 @@ struct HabitListOnWeekdaysView: View {
           
         }
         .toolbar {
-            
-            ToolbarItem(placement: .navigationBarLeading) {
+            /*
+            ToolbarItem(placement: .topBarLeading) {
                 Text("Weekly Plan")
                 .padding()
                 .bold()
                 .font(.title3)
             }
+             */
             
-            ToolbarItem(placement: .status) {
+            ToolbarItem(placement: .primaryAction) {
                 Button(action: {
-                  //  showCreateHabitView.toggle()
+                    showCreateHabitView.toggle()
                 }) {
                     Text("Add Habit")
-                        .foregroundStyle(Color.green)
+                      .foregroundStyle(Color.green)
                     Image(systemName: "plus.circle")
                         .foregroundStyle(Color.green)
                 }
@@ -91,17 +108,19 @@ struct HabitListOnWeekdaysView: View {
                 .bold()
             }
             
-            ToolbarItem(placement: .navigationBarTrailing) {
+            ToolbarItem(placement: .topBarLeading) {
                 NavigationLink(destination: {
                     HabitListView()
                 }, label: {
                     HStack{
-                        Text("Habit List")
+                       
                         Image(systemName: "list.bullet.circle")
                             .fontWeight(.semibold)
+                        Text("Habit List")
 
                     }
                     .foregroundStyle(.green)
+                    .bold()
                 }
                   
                 )
@@ -111,6 +130,9 @@ struct HabitListOnWeekdaysView: View {
                
                   }
            
+        }
+        .sheet(isPresented: $showCreateHabitView) {
+            CreateHabitView(showCreateHabitView: $showCreateHabitView)
         }
             Spacer()
       
@@ -143,6 +165,7 @@ struct HabitListOnWeekdaysView: View {
             return []
         }
     }
+
 }
 
 #Preview {

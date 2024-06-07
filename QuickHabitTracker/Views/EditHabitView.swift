@@ -21,6 +21,8 @@ struct EditHabitView: View {
     @State private var isRepeatedOnFri: Bool = false
     @State private var isRepeatedOnSat: Bool = false
     
+    @State private var allDaysChecked: Bool = false
+    
     let coreDataHelper = CoreDataHelper.shared
 
     @State var habit: Habit
@@ -39,95 +41,113 @@ struct EditHabitView: View {
                 .background(Color(.secondarySystemBackground))
                 .cornerRadius(10)
             
-            HStack(spacing: 10) {
+            HStack{
                 Button {
                     isRepeatedOnSun.toggle()
                 } label: {
-                    Text("Sun")
+                    Text("Sunday")
                         .foregroundColor(isRepeatedOnSun ? .white : .primary)
-                    .frame(width: 40, height: 40)
-                    .background(isRepeatedOnSun ? Color.customGreen : Color(.tertiarySystemFill))
-                    .cornerRadius(8)
+                        .frame(width: 100, height: 40)
+                        .background(isRepeatedOnSun ? .green : Color(.tertiarySystemFill))
+                        .cornerRadius(8)
                 }
                 
                 Button {
                     isRepeatedOnMon.toggle()
                 } label: {
-                    Text("Mon")
+                    Text("Monday")
                         .foregroundColor(isRepeatedOnMon ? .white : .primary)
-                    .frame(width: 40, height: 40)
-                    .background(isRepeatedOnMon ? Color.customGreen : Color(.tertiarySystemFill))
-                    .cornerRadius(8)
+                        .frame(width: 100, height: 40)
+                        .background(isRepeatedOnMon ? .green : Color(.tertiarySystemFill))
+                        .cornerRadius(8)
                 }
                 
                 Button {
                     isRepeatedOnTue.toggle()
                 } label: {
-                    Text("Tue")
+                    Text("Tuesday")
                         .foregroundColor(isRepeatedOnTue ? .white : .primary)
-                    .frame(width: 40, height: 40)
-                    .background(isRepeatedOnTue ? Color.customGreen : Color(.tertiarySystemFill))
-                    .cornerRadius(8)
+                        .frame(width: 100, height: 40)
+                        .background(isRepeatedOnTue ? .green : Color(.tertiarySystemFill))
+                        .cornerRadius(8)
                 }
+            }
+            HStack{
                 
                 Button {
                     isRepeatedOnWed.toggle()
                 } label: {
-                    Text("Wed")
+                    Text("Wednesday")
                         .foregroundColor(isRepeatedOnWed ? .white : .primary)
-                    .frame(width: 40, height: 40)
-                    .background(isRepeatedOnWed ? Color.customGreen : Color(.tertiarySystemFill))
-                    .cornerRadius(8)
+                        .frame(width: 100, height: 40)
+                        .background(isRepeatedOnWed ? .green : Color(.tertiarySystemFill))
+                        .cornerRadius(8)
                 }
                 
                 Button {
                     isRepeatedOnThu.toggle()
                 } label: {
-                    Text("Thu")
+                    Text("Thursday")
                         .foregroundColor(isRepeatedOnThu ? .white : .primary)
-                    .frame(width: 40, height: 40)
-                    .background(isRepeatedOnThu ? Color.customGreen : Color(.tertiarySystemFill))
-                    .cornerRadius(8)
+                        .frame(width: 100, height: 40)
+                        .background(isRepeatedOnThu ? .green : Color(.tertiarySystemFill))
+                        .cornerRadius(8)
                 }
                 
                 Button {
                     isRepeatedOnFri.toggle()
                 } label: {
-                    Text("Fri")
+                    Text("Friday")
                         .foregroundColor(isRepeatedOnFri ? .white : .primary)
-                    .frame(width: 40, height: 40)
-                    .background(isRepeatedOnFri ? Color.customGreen : Color(.tertiarySystemFill))
-                    .cornerRadius(8)
+                        .frame(width: 100, height: 40)
+                        .background(isRepeatedOnFri ? .green : Color(.tertiarySystemFill))
+                        .cornerRadius(8)
                 }
+            }
+            HStack{
                 
                 Button {
                     isRepeatedOnSat.toggle()
                 } label: {
-                    Text("Sat")
+                    Text("Saturday")
                         .foregroundColor(isRepeatedOnSat ? .white : .primary)
-                    .frame(width: 40, height: 40)
-                    .background(isRepeatedOnSat ? Color.customGreen : Color(.tertiarySystemFill))
-                    .cornerRadius(8)
+                        .frame(width: 100, height: 40)
+                        .background(isRepeatedOnSat ? .green : Color(.tertiarySystemFill))
+                        .cornerRadius(8)
                 }
-
-            }
-            
-            Button(action: {
-                isRepeatedOnSun = true
-                isRepeatedOnMon = true
-                isRepeatedOnTue = true
-                isRepeatedOnWed = true
-                isRepeatedOnThu = true
-                isRepeatedOnFri = true
-                isRepeatedOnSat = true
-
-            }) {
-                Text("Every Day")
-                    .foregroundColor(.white)
-                    .padding(.horizontal, 20)
-                    .padding(.vertical, 10)
-                    .background(Color.customGreen)
-                    .cornerRadius(10)
+                //
+                
+                
+                Button(action: {
+                    
+                    allDaysChecked.toggle()
+                    
+                    if allDaysChecked {
+                        isRepeatedOnSun = true
+                        isRepeatedOnMon = true
+                        isRepeatedOnTue = true
+                        isRepeatedOnWed = true
+                        isRepeatedOnThu = true
+                        isRepeatedOnFri = true
+                        isRepeatedOnSat = true
+                    }
+                    else {
+                        isRepeatedOnSun = false
+                        isRepeatedOnMon = false
+                        isRepeatedOnTue = false
+                        isRepeatedOnWed = false
+                        isRepeatedOnThu = false
+                        isRepeatedOnFri = false
+                        isRepeatedOnSat = false
+                    }
+                }) {
+                    Image(systemName: "checklist.checked")
+                        .font(.title)
+                        .foregroundColor(.white)
+                        .frame(width: 40, height: 40)
+                        .background(allDaysChecked ? .green : .gray.opacity(0.2))
+                        .cornerRadius(10)
+                }
             }
             
             Button(action: {
@@ -139,15 +159,16 @@ struct EditHabitView: View {
                 Text("Done")
                     .foregroundColor(.white)
                     .fontWeight(.semibold)
-                    .padding(.horizontal, 20)
-                    .padding(.vertical, 10)
+                    .frame(width: 300, height: 40)
+                  //  .padding(.horizontal, 20)
+                   // .padding(.vertical, 10)
                     .background((habitName.isEmpty) ? Color.green.opacity(0.4) : Color.green)
                     .cornerRadius(10)
                 
             
             })
             .disabled(habitName.isEmpty)
-            .padding(.top, 20)
+            
             
             Spacer()
             

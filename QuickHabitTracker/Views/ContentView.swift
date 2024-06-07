@@ -18,7 +18,7 @@ struct ContentView: View {
         
         HabitListOnWeekdaysView()
         .tabItem {
-          Label("Habits List", systemImage: "list.bullet")
+          Label("Weekly Plan", systemImage: "list.bullet")
         }
       MonthsOfYearView()
         .tabItem {
