@@ -55,13 +55,9 @@ struct UITestView2: View {
                 Divider()
                
                 GithubLikeView()
-              
-
-                
+     
             }
-            
-           
-            
+
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Text("Quick Habit Tracker")
@@ -116,7 +112,7 @@ struct PressableButtonStyle: ButtonStyle {
 }
 
 struct githublikeView: View {
-    let daysInMonth = 30 // Replace with the actual number of days in the month
+    let daysInMonth = 20 // Replace with the actual number of days in the month
     let weekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
 
     var body: some View {
