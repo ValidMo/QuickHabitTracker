@@ -19,7 +19,16 @@ struct RecordView: View {
     @Environment(\.managedObjectContext) var context
     @State private var records: [Record] = []
     @State private var habits: [Habit] = []
-    @State private var tempHabits: Set<String> = []
+    @State private var tempHabits: [TempHabit] = []
+    
+    struct TempHabit: Hashable {
+        let uuid = UUID()
+        let habitName: String
+        let habitStatus: Bool
+    }
+    
+    
+    
     
     let coreDataHelper = CoreDataHelper.shared
     
@@ -27,24 +36,50 @@ struct RecordView: View {
         
         VStack{
             if !tempHabits.isEmpty{
-                if let doneHabits = records.first?.doneHabits {
-                    ForEach(doneHabits, id: \.self){ habit in
-                        if tempHabits.contains(habit.lowercased()){
-                            Text("\(habit)")
-                                .foregroundStyle(.green)
+                if !records.isEmpty{
+                    if var doneHabits = records.first?.doneHabits {
+                        
+                        ForEach(tempHabits, id: \.self){ habit in
+                            Button(action: {
+                                if !((records.first?.doneHabits?.contains(habit.habitName.lowercased())) == nil) {
+                                    records.first?.doneHabits?.append(habit.habitName.lowercased())
+                                }
+                            }, label: {
+                                Text(formatHabitName(habit.habitName))
+                                    .fontWeight(.semibold)
+                                    .frame(maxWidth: .infinity)
+                                    .padding()
+                                    
+                            })
+                            .buttonStyle(PressableButtonStyle(pressedColor: .green.opacity(0.8), unpressedColor: .gray.opacity(0.5), isPressed: ((records.first?.doneHabits?.contains(habit.habitName.lowercased())) != nil)))
+                            .contextMenu(ContextMenu(menuItems: {
+                                Button("Undone Habit", role: .destructive) {
+                
+                                    if let _ = records.first, temp _.doneHabits.firstIndex(of: habit.habitName.lowercased()) {
+                                        records.first?.doneHabits?.remove(at: index)
+                                    }
+                                    refreshRecords()
+                                }
+                               // .disabled(!(records.first?.doneHabits.contains(habit.habitName.lowercased())))
+                            }))
                         }
-                        else {
-                            Text("\(habit)")
-                                .foregroundStyle(.gray)
-                        }
-
                     }
+                    
                 }
-                else{
-                    let tempHabitsArray = Array(tempHabits)
-                    ForEach(tempHabitsArray, id: \.self){ habit in
-                        Text(habit)
-                            .foregroundStyle(.gray)
+                else {
+                    
+                    ForEach(habits){ habit in
+                        Button {
+                            coreDataHelper.createRecord(habit: habit, context: context, day: day, month: month, year: year)
+                            refreshRecords()
+                            
+                        } label: {
+                            Text(habit.name)
+                                .fontWeight(.semibold)
+                                .frame(maxWidth: .infinity)
+                                .padding()
+                        }
+                        .buttonStyle(PressableButtonStyle(pressedColor: .green.opacity(0.8), unpressedColor: .gray.opacity(0.5), isPressed: false))
                     }
                 }
             }
@@ -59,7 +94,10 @@ struct RecordView: View {
             if let request = fetchRequest(day: day, month: month, year: year, context: context) {
                 do {
                     habits = try context.fetch(request)
-                    tempHabits = Set(habits.map{ $0.name.lowercased()})
+                    ForEach(habits){ habit in
+                        let element = TempHabit(habitName: habit.name, habitStatus: false)
+                        tempHabits.append(element)
+                    }
                     print("Fetched habits: \(habits.count)")
                 } catch {
                     print("Error fetching data: \(error)")
@@ -85,6 +123,8 @@ struct RecordView: View {
             
             
         }
+        
+       
         
         
     }
@@ -163,12 +203,10 @@ struct RecordView: View {
                                 Text(habit)
                                     .fontWeight(.semibold)
                                     .foregroundStyle(.green)
-                                
                             }
                             .padding()
                             
                         }
-                        
                     }
                     else {
                         Text("No Habits found for today!")
@@ -177,7 +215,6 @@ struct RecordView: View {
                     }
                     
                 }
-                
                 
             }
             
@@ -189,9 +226,61 @@ struct RecordView: View {
         
     }
     
+    private func checkIfHabitIsInRecords(habit: String) -> Bool {
+        if let record = records.first{
+            if let doneHabits = record.doneHabits {
+                if doneHabits.contains(habit.lowercased()){
+                    return true
+                }
+                return false
+            }
+            return false
+        }
+        return false
+        
+    }
     
+    private func refreshRecords(){
+        if let request = fetchRequestForTrackedHabits(day: day, month: month, year: year, context: context){
+            do {
+                records = try context.fetch(request)
+                print("Fetched records: \(records.count)")
+            }
+            catch {
+                print("Error fetching data: \(error)")
+            }
+            
+        }
+            .disabled(!(records.first?.doneHabits.contains(habit.habitName.lowercased())))
+    }
     
-    
-    
-    
+    func formatHabitName(_ habit: String) -> String {
+          guard let first = habit.first else { return habit }
+          return first.uppercased() + habit.dropFirst()
+      }
 }
+
+/*
+ func checkForRecordedDay(day: Int, month: Int, year: Int, context: NSManagedObjectContext) -> [Record] {
+ 
+ 
+ if let request = fetchRequestForTrackedHabits(day: day, month: month, year: year, context: context){
+ do {
+ let records = try context.fetch(request)
+ print("Fetched records: \(records.count)")
+ return records
+ }
+ catch {
+ print("Error fetching data: \(error)")
+ return []
+ }
+ 
+ }
+ else {
+ print("bad request while fetching TrackedDays")
+ return []
+ }
+ 
+ }
+ */
+
