@@ -26,6 +26,7 @@
 		0D66AD732BE2B5B2002AD8B0 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D66AD722BE2B5B2002AD8B0 /* CoreDataHelper.swift */; };
 		0D77714C2BEB6FCC00415574 /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D77714B2BEB6FCC00415574 /* RecordView.swift */; };
 		0D79C5952C0CC3A500A0B1C6 /* GithubLikeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D79C5942C0CC3A500A0B1C6 /* GithubLikeView.swift */; };
+		0D80C8FA2C16F92B00B41EDC /* HomeView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D80C8F92C16F92B00B41EDC /* HomeView2.swift */; };
 		0D9A92722BE2AF2A00E066F9 /* model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0D9A92702BE2AF2A00E066F9 /* model.xcdatamodeld */; };
 		0DA74FFB2BE6339A0009B1DF /* CreateHabitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA74FFA2BE6339A0009B1DF /* CreateHabitView.swift */; };
 		0DA74FFD2BE76FBF0009B1DF /* MonthsOfYearView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA74FFC2BE76FBF0009B1DF /* MonthsOfYearView.swift */; };
@@ -91,6 +92,7 @@
 		0D66AD722BE2B5B2002AD8B0 /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
 		0D77714B2BEB6FCC00415574 /* RecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
 		0D79C5942C0CC3A500A0B1C6 /* GithubLikeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubLikeView.swift; sourceTree = "<group>"; };
+		0D80C8F92C16F92B00B41EDC /* HomeView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView2.swift; sourceTree = "<group>"; };
 		0D9A92712BE2AF2A00E066F9 /* model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = model.xcdatamodel; sourceTree = "<group>"; };
 		0DA74FFA2BE6339A0009B1DF /* CreateHabitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateHabitView.swift; sourceTree = "<group>"; };
 		0DA74FFC2BE76FBF0009B1DF /* MonthsOfYearView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthsOfYearView.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 				0D37075A2C05AB8E00F3D9E3 /* SettingsView.swift */,
 				0D6658252C10E47D00337A9D /* HabitListView.swift */,
 				0D6381D42C119203007F8AB3 /* EditHabitView.swift */,
+				0D80C8F92C16F92B00B41EDC /* HomeView2.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -368,6 +371,7 @@
 				0D5E1CE22C0B1C360050830D /* HelperStructs.swift in Sources */,
 				0D60E2FC2BF5F2E1009D8614 /* HelperFunctions.swift in Sources */,
 				0D490D872C099A5000CB8ACF /* Record+CoreDataClass.swift in Sources */,
+				0D80C8FA2C16F92B00B41EDC /* HomeView2.swift in Sources */,
 				0D490D882C099A5000CB8ACF /* Record+CoreDataProperties.swift in Sources */,
 				0D6381D52C119203007F8AB3 /* EditHabitView.swift in Sources */,
 				0D0B4A8F2BF1389A00CC1CB7 /* Habit+CoreDataClass.swift in Sources */,

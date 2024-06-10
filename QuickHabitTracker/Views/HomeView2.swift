@@ -1,34 +1,24 @@
 //
-//  RecordView.swift
+//  HomeView2.swift
 //  QuickHabitTracker
 //
-//  Created by Valid Mohammadi on 8.05.2024.
+//  Created by Valid Mohammadi on 10.06.2024.
 //
 
 import SwiftUI
-import CoreData
 
-/*
-class TempHabit: ObservableObject {
-
-    @Published var habits: [String] = []
-   
-}
- */
-struct RecordView: View {
+struct HomeView2: View {
     
-    @State var day: Int
-    @State var month: Int
-    @State var year: Int
+    @State var day: Int = Calendar.current.component(.day, from: Date())
+    @State var month: Int = Calendar.current.component(.day, from: Date())
+    @State var year: Int = Calendar.current.component(.day, from: Date())
     
     @Environment(\.managedObjectContext) var context
     
     @State private var records: [Record] = []
     @State private var habits: [Habit] = []
-  
-    
     @State private var tempHabits: [String] = []
-
+    
     let coreDataHelper = CoreDataHelper.shared
     
     var body: some View {
@@ -37,19 +27,18 @@ struct RecordView: View {
                 ForEach(habits) { habit in
                         Button(action: {
                             if tempHabits.contains(habit.name.lowercased()) {
-//                                records.first?.doneHabits?.removeAll { $0 == habit.name.lowercased() }
-//                                tempHabits.removeAll { $0.lowercased() == habit.name.lowercased() }
+                                records.first?.doneHabits?.removeAll { $0 == habit.name.lowercased() }
+                                tempHabits.removeAll { $0.lowercased() == habit.name.lowercased() }
 //                                printAll()
-//                                refreshRecords()
+                                refreshRecords()
                                 }
                                 
                             
                              else {
                                 records.first?.doneHabits?.append(habit.name.lowercased())
                                 tempHabits.append(habit.name.lowercased())
-                                printAll()
+//                                printAll()
                                 refreshRecords()
-                                 coreDataHelper.save()
                             }
                         }, label: {
                             Text(formatHabitName(habit.name))
@@ -67,24 +56,22 @@ struct RecordView: View {
                                 if tempHabits.contains(habit.name.lowercased()) {
                                     records.first?.doneHabits?.removeAll { $0 == habit.name.lowercased() }
                                     tempHabits.removeAll { $0.lowercased() == habit.name.lowercased() }
-                                    printAll()
+//                                    printAll()
                                     refreshRecords()
-                                    coreDataHelper.save()
                                     }
                             }
                         }
                         
                     
                 }
-            } 
+            }
             else if records.isEmpty {
                 ForEach(habits) { habit in
                     Button {
                         coreDataHelper.createRecord(habit: habit, context: context, day: day, month: month, year: year)
                         tempHabits.append(habit.name.lowercased())
                         refreshRecords()
-                        printAll()
-                        coreDataHelper.save()
+//                        printAll()
                         
                     } label: {
                         Text(formatHabitName(habit.name))
@@ -106,24 +93,13 @@ struct RecordView: View {
         .onAppear {
             fetchData()
             refreshRecords()
-            printAll()
+            
         }
     }
     
-    private func printAll() {
-        print("habits LIST: ")
-        print(habits.map { $0.name })
-        print("tempHabits LIST: ")
-        print(tempHabits)
-        print("Record.doneHabits LIST: ")
-        print(records.first?.doneHabits)
-        print("===============================")
-        
-    }
-    
-   
-    
     private func fetchData() {
+      
+    
         if let request = fetchRequest(day: day, month: month, year: year, context: context) {
             do {
                 habits = try context.fetch(request)
@@ -152,6 +128,7 @@ struct RecordView: View {
             tempHabits = doneHabits.map { $0 }
         }
     }
+ 
     
     private func refreshRecords() {
         if let request = fetchRequestForTrackedHabits(day: day, month: month, year: year, context: context) {
@@ -167,45 +144,15 @@ struct RecordView: View {
         } else {
             print("Bad request while fetching tracked habits")
         }
-        if let doneHabits = records.first?.doneHabits {
-            tempHabits = doneHabits.map { $0 }
-        }
+//        if let doneHabits = records.first?.doneHabits {
+//            tempHabits = doneHabits.map { $0 }
+//        }
 
     }
-
-
     
-    func formatHabitName(_ habit: String) -> String {
-        guard let first = habit.first else { return habit }
-        return first.uppercased() + habit.dropFirst()
-    }
-
-    private func checkIfThereIsRecordOrNot(day: Int, month: Int, year: Int, context: NSManagedObjectContext) -> Bool {
-        if let request = fetchRequestForTrackedHabits(day: day, month: month, year: year, context: context){
-            do {
-                let records = try context.fetch(request)
-                print("Fetched records: \(records.count)")
-                return true
-            }
-            catch {
-                print("Error fetching data: \(error)")
-                return false
-            }
-            
-        }
-        else {
-            print("bad request while fetching TrackedDays")
-            return false
-        }
-    }
+    
 }
 
-
-
-    
-    func formatHabitName(_ habit: String) -> String {
-          guard let first = habit.first else { return habit }
-          return first.uppercased() + habit.dropFirst()
-      }
-
-
+//#Preview {
+//    HomeView2()
+//}

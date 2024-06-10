@@ -100,6 +100,9 @@ class CoreDataHelper: ObservableObject {
         
         record.date = date
         record.doneHabits = [habit.name.lowercased()]
+        print("*** THIS IS FROM COREDATA FUNCTION ***")
+        print(record.doneHabits)
+        print("*** THIS IS FROM COREDATA FUNCTION ***")
        
         
        save()

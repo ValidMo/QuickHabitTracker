@@ -11,16 +11,23 @@ import WidgetKit
 
 struct HomeView: View {
     
+    @State var day: Int
+    @State var month: Int
+    @State var year: Int
     
-    @AppStorage("firstHabitStatus", store: UserDefaults(suiteName: "group.com.devNoyan.QuickHabitTracker")) var firstHabitStatus: Bool = false
-    @State private var habitStatus: Bool = false
-    @State private var showCreateHabitView: Bool = false
-    
+    @Environment(\.managedObjectContext) var context
+    @State private var records: [Record] = []
     @State private var habits: [Habit] = []
     
     
-    @Environment(\.managedObjectContext) var context
+    @AppStorage("firstHabitStatus", store: UserDefaults(suiteName: "group.com.devNoyan.QuickHabitTracker")) var firstHabitStatus: Bool = false
+    
+    @State private var habitStatus: Bool = false
+    @State private var showCreateHabitView: Bool = false
+    
+    
 
+    
     var body: some View {
         NavigationStack {
             VStack {
@@ -152,10 +159,10 @@ struct HomeView: View {
    
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeView()
-    }
-}
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        HomeView()
+//    }
+//}
 
 

@@ -118,4 +118,19 @@ Errors:
     
     
     NSStringArrayTransformerValueTransformerName
+    
+    
+---
+# Remaining
+
+- Notification
+- Languages
+- SettingView
+- Improve RecordView
+- HomeView
+- GreenSquaresLogic
+- Widget
+- Dark Mode
+- GitHubLikeView for each Habit
+
 
