@@ -19,59 +19,67 @@ struct HomeView2: View {
     @State private var habits: [Habit] = []
     @State private var tempHabits: [String] = []
     
+    @State private var showCreateHabitView: Bool = false
+    
     let coreDataHelper = CoreDataHelper.shared
     
     var body: some View {
-        VStack {
+        NavigationStack {
+            Divider()
+            
             if !habits.isEmpty && !records.isEmpty {
+                LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 10), count: 2), spacing: 16) {
                 ForEach(habits) { habit in
-                        Button(action: {
+                    Button(action: {
+                        if tempHabits.contains(habit.name.lowercased()) {
+                            records.first?.doneHabits?.removeAll { $0 == habit.name.lowercased() }
+                            tempHabits.removeAll { $0.lowercased() == habit.name.lowercased() }
+                            //                                printAll()
+                            refreshRecords()
+                        }
+                        
+                        
+                        else {
+                            records.first?.doneHabits?.append(habit.name.lowercased())
+                            tempHabits.append(habit.name.lowercased())
+                            //                                printAll()
+                            refreshRecords()
+                        }
+                    }, label: {
+                        Text(formatHabitName(habit.name))
+                            .fontWeight(.semibold)
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                    })
+                    .buttonStyle(PressableButtonStyle(
+                        pressedColor: .green.opacity(0.8),
+                        unpressedColor: .gray.opacity(0.5),
+                        isPressed: tempHabits.contains(habit.name.lowercased())))
+                    
+                    .contextMenu {
+                        Button("Undone Habit", role: .destructive) {
                             if tempHabits.contains(habit.name.lowercased()) {
                                 records.first?.doneHabits?.removeAll { $0 == habit.name.lowercased() }
                                 tempHabits.removeAll { $0.lowercased() == habit.name.lowercased() }
-//                                printAll()
+                                //                                    printAll()
                                 refreshRecords()
-                                }
-                                
-                            
-                             else {
-                                records.first?.doneHabits?.append(habit.name.lowercased())
-                                tempHabits.append(habit.name.lowercased())
-//                                printAll()
-                                refreshRecords()
-                            }
-                        }, label: {
-                            Text(formatHabitName(habit.name))
-                                .fontWeight(.semibold)
-                                .frame(maxWidth: .infinity)
-                                .padding()
-                        })
-                        .buttonStyle(PressableButtonStyle(
-                            pressedColor: .green.opacity(0.8),
-                            unpressedColor: .gray.opacity(0.5),
-                            isPressed: tempHabits.contains(habit.name.lowercased())))
-                        
-                        .contextMenu {
-                            Button("Undone Habit", role: .destructive) {
-                                if tempHabits.contains(habit.name.lowercased()) {
-                                    records.first?.doneHabits?.removeAll { $0 == habit.name.lowercased() }
-                                    tempHabits.removeAll { $0.lowercased() == habit.name.lowercased() }
-//                                    printAll()
-                                    refreshRecords()
-                                    }
                             }
                         }
-                        
+                    }
+                    
                     
                 }
             }
-            else if records.isEmpty {
+                .padding(.horizontal, 15)
+                .padding(.vertical, 5)
+                
+           if records.isEmpty {
                 ForEach(habits) { habit in
                     Button {
                         coreDataHelper.createRecord(habit: habit, context: context, day: day, month: month, year: year)
                         tempHabits.append(habit.name.lowercased())
                         refreshRecords()
-//                        printAll()
+                        //                        printAll()
                         
                     } label: {
                         Text(formatHabitName(habit.name))
@@ -85,9 +93,35 @@ struct HomeView2: View {
                         isPressed: false))
                 }
             }
+        }
+            
             else {
                 Text("no habits for today")
             }
+            Divider()
+            TileView()
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Text("Quick Habit Tracker")
+                            .bold()
+                    }
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button(action: {
+                            showCreateHabitView.toggle()
+                        }) {
+                            Text("Add Habit")
+                                .foregroundStyle(Color.green)
+                            Image(systemName: "plus.circle")
+                                .foregroundStyle(Color.green)
+                        }
+                        .padding()
+                        .bold()
+                    }
+                }
+                .sheet(isPresented: $showCreateHabitView) {
+                    CreateHabitView(showCreateHabitView: $showCreateHabitView)
+                }
+                .navigationTitle("Today's Habits")
              
         }
         .onAppear {

@@ -28,6 +28,8 @@ struct RecordView: View {
   
     
     @State private var tempHabits: [String] = []
+    
+    @State var tileColorOpacity: Double = 0
 
     let coreDataHelper = CoreDataHelper.shared
     
@@ -50,6 +52,7 @@ struct RecordView: View {
                                 printAll()
                                 refreshRecords()
                                  coreDataHelper.save()
+                                 tileColorOpacity = tileColor(doneHabitsCount: records.first?.doneHabits?.count, allHabitsCount: habits.count)
                             }
                         }, label: {
                             Text(formatHabitName(habit.name))
@@ -70,6 +73,7 @@ struct RecordView: View {
                                     printAll()
                                     refreshRecords()
                                     coreDataHelper.save()
+                                    tileColorOpacity = tileColor(doneHabitsCount: records.first?.doneHabits?.count, allHabitsCount: habits.count)
                                     }
                             }
                         }
@@ -85,6 +89,7 @@ struct RecordView: View {
                         refreshRecords()
                         printAll()
                         coreDataHelper.save()
+                        tileColorOpacity = tileColor(doneHabitsCount: records.first?.doneHabits?.count, allHabitsCount: habits.count)
                         
                     } label: {
                         Text(formatHabitName(habit.name))
@@ -102,11 +107,19 @@ struct RecordView: View {
                 Text("no habits for today")
             }
              
+            Rectangle()
+                .fill(tileColorOpacity == 0 ? .gray : .green.opacity(tileColorOpacity))
+                .frame(maxWidth: 40, maxHeight: 40)
+                .cornerRadius(10)
+                .aspectRatio(1, contentMode: .fit)
+            
         }
         .onAppear {
             fetchData()
             refreshRecords()
             printAll()
+            tileColorOpacity = tileColor(doneHabitsCount: records.first?.doneHabits?.count, allHabitsCount: habits.count)
+            
         }
     }
     

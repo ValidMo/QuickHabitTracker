@@ -54,7 +54,7 @@ struct UITestView2: View {
                 }
                 Divider()
                
-                GithubLikeView()
+                TileView()
      
             }
 

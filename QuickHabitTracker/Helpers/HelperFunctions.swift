@@ -159,6 +159,34 @@ func calculateYear() -> Int {
     return currentYear
 }
 
+func calculateMonth() -> Int {
+    let calendar = Calendar.current
+    let currentDate = Date()
+    let currentMonth = calendar.component(.month, from: currentDate)
+    
+    print(currentMonth)
+    return currentMonth
+}
+
+func calculateDay() -> Int {
+    let calendar = Calendar.current
+    let currentDate = Date()
+    let currentDay = calendar.component(.day, from: currentDate)
+    
+    print(currentDay)
+    return currentDay
+}
+
+func calculateDayCountOfMonth() -> Int {
+   
+    let calendar = Calendar.current
+    let date = Date()
+    let dayCount = calendar.range(of: .day, in: .month, for: date)?.count ?? 0
+    
+    
+    return dayCount
+}
+
 func getMonthAsString() -> String {
   let formatter = DateFormatter()
   formatter.dateFormat = "MMMM"
@@ -203,5 +231,80 @@ func checkForRecordedDay(day: Int, month: Int, year: Int, context: NSManagedObje
     
 }
 
+func tileColor(doneHabitsCount: Int?, allHabitsCount: Int?) -> Double {
+    if let doneHabitsCount = doneHabitsCount, let allHabitsCount = allHabitsCount {
+        return Double(doneHabitsCount)/Double(allHabitsCount)
+    }
+    return 0.0
+  
+}
+
+func tileColorIteratedOnMonthDays(day: Int, month: Int, year: Int, context: NSManagedObjectContext) -> Double {
+    
+    var recordsCount = 0
+    var habitsCount = 0
+    
+    print(day)
+     if let request = fetchRequestForTrackedHabits(day: day, month: month, year: year, context: context){
+         do {
+             let records = try context.fetch(request)
+             recordsCount =  records.first?.doneHabits?.count ?? 0
+             print("Fetched records: \(records.count)")
+             
+         }
+         catch {
+             print("Error fetching data: \(error)")
+             
+         }
+         
+     }
+    else {
+        print("bad request while fetching TrackedDays")
+        
+    }
+    
+    if let request = fetchRequest(day: day, month: month, year: year, context: context) {
+        do {
+            let habits = try context.fetch(request)
+            habitsCount = habits.count
+            print("Fetched habits: \(habits.count)")
+        } catch {
+            print("Error fetching data: \(error)")
+        }
+    } else {
+        print("Bad request while fetching habits related to the date")
+    }
+    
+    
+    let tileColor = tileColor(doneHabitsCount: recordsCount , allHabitsCount: habitsCount)
+    
+    print("=========")
+    return tileColor
+}
+
+func calculateWhichDayOfWeekAMonthStarts() -> Int{
+    let calendar = Calendar.current
+    var components = DateComponents(year: calendar.component(.year, from: Date()), month: calendar.component(.month, from: Date()))
+    components.day = 1
+    
+    if let firstDayOfMonth = calendar.date(from: components) {
+        let weekday = calendar.component(.weekday, from: firstDayOfMonth)
+        // Use weekday (1-based Sunday through 7-based Saturday)
+        print(weekday)
+        return weekday
+    }
+    
+    
+    return 1
+    
+    /*  let calendar = Calendar.current
+     let components = DateComponents(year: currentYear, month: getMonthNumber(from: month))
+     if let date = calendar.date(from: components) {
+     let daysInMonth = calendar.range(of: .day, in: .month, for: date)?.count ?? 0
+     return Array(1...daysInMonth)
+     } else {
+     return []
+     }*/
+}
 
 

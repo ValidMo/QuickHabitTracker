@@ -120,6 +120,7 @@ struct DaysOfMonthView2: View {
                            .onAppear{
                                selectedDay = getDayAsInt()
                                selectedMonth = getMonthNumber(from: month)
+                               calculateWhichDayOfWeekAMonthStarts()
                            }
                            .onChange(of: month) { newValue in
                                selectedMonth = getMonthNumber(from: newValue)
