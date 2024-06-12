@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct HomeView2: View {
     
@@ -20,6 +21,13 @@ struct HomeView2: View {
     @State private var tempHabits: [String] = []
     
     @State private var showCreateHabitView: Bool = false
+    
+    @StateObject var viewModel = TileViewModel()
+    
+   
+
+
+    
     
     let coreDataHelper = CoreDataHelper.shared
     
@@ -98,8 +106,10 @@ struct HomeView2: View {
             else {
                 Text("no habits for today")
             }
+            Spacer()
             Divider()
-            TileView()
+            TileView(viewModel: viewModel)
+                
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
                         Text("Quick Habit Tracker")
@@ -127,6 +137,7 @@ struct HomeView2: View {
         .onAppear {
             fetchData()
             refreshRecords()
+           
             
         }
     }

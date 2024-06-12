@@ -52,9 +52,10 @@ struct UITestView2: View {
                     .padding(.horizontal, 15)
                     .padding(.vertical, 5)
                 }
+                Spacer()
                 Divider()
                
-                TileView()
+              //  TileView(day: <#T##Int#>, month: <#T##Int#>, year: <#T##Int#>, context: <#T##NSManagedObjectContext#>)
      
             }
 

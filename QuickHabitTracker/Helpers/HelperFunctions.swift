@@ -275,10 +275,15 @@ func tileColorIteratedOnMonthDays(day: Int, month: Int, year: Int, context: NSMa
         print("Bad request while fetching habits related to the date")
     }
     
+    if habitsCount == 0 {
+        return 0.0
+    }
+    
     
     let tileColor = tileColor(doneHabitsCount: recordsCount , allHabitsCount: habitsCount)
     
     print("=========")
+    print(tileColor)
     return tileColor
 }
 

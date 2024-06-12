@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0D0B4A8F2BF1389A00CC1CB7 /* Habit+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0B4A8D2BF1389A00CC1CB7 /* Habit+CoreDataClass.swift */; };
 		0D0B4A902BF1389A00CC1CB7 /* Habit+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0B4A8E2BF1389A00CC1CB7 /* Habit+CoreDataProperties.swift */; };
+		0D1A71EE2C197F4000239F4C /* TileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1A71ED2C197F4000239F4C /* TileViewModel.swift */; };
+		0D1A720C2C19974B00239F4C /* TileView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1A720B2C19974B00239F4C /* TileView2.swift */; };
 		0D215BDC2C0328580081D7F3 /* HabitTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D215BDB2C0328580081D7F3 /* HabitTransformer.swift */; };
 		0D37075B2C05AB8E00F3D9E3 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D37075A2C05AB8E00F3D9E3 /* SettingsView.swift */; };
 		0D37075D2C05CB8100F3D9E3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D37075C2C05CB8100F3D9E3 /* ContentView.swift */; };
@@ -74,6 +76,8 @@
 /* Begin PBXFileReference section */
 		0D0B4A8D2BF1389A00CC1CB7 /* Habit+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Habit+CoreDataClass.swift"; sourceTree = "<group>"; };
 		0D0B4A8E2BF1389A00CC1CB7 /* Habit+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Habit+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		0D1A71ED2C197F4000239F4C /* TileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileViewModel.swift; sourceTree = "<group>"; };
+		0D1A720B2C19974B00239F4C /* TileView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileView2.swift; sourceTree = "<group>"; };
 		0D215BDB2C0328580081D7F3 /* HabitTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitTransformer.swift; sourceTree = "<group>"; };
 		0D37075A2C05AB8E00F3D9E3 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		0D37075C2C05CB8100F3D9E3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -159,6 +163,8 @@
 				0D3E3B5A2C0C48630004D419 /* UITestView3.swift */,
 				0D79C5942C0CC3A500A0B1C6 /* TileView.swift */,
 				0D6381D62C11B04A007F8AB3 /* UITestView2.swift */,
+				0D1A71ED2C197F4000239F4C /* TileViewModel.swift */,
+				0D1A720B2C19974B00239F4C /* TileView2.swift */,
 			);
 			path = TempViews;
 			sourceTree = "<group>";
@@ -352,6 +358,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D66AD732BE2B5B2002AD8B0 /* CoreDataHelper.swift in Sources */,
+				0D1A71EE2C197F4000239F4C /* TileViewModel.swift in Sources */,
 				0DBC9D732BDEC5390018C39B /* ChangeHabitStatusIntent.swift in Sources */,
 				0DA74FFD2BE76FBF0009B1DF /* MonthsOfYearView.swift in Sources */,
 				0D215BDC2C0328580081D7F3 /* HabitTransformer.swift in Sources */,
@@ -379,6 +386,7 @@
 				0D0B4A902BF1389A00CC1CB7 /* Habit+CoreDataProperties.swift in Sources */,
 				0D50A24B2BF370E9007CA46D /* fetchBydateView.swift in Sources */,
 				0D37075B2C05AB8E00F3D9E3 /* SettingsView.swift in Sources */,
+				0D1A720C2C19974B00239F4C /* TileView2.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
