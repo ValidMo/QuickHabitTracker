@@ -55,7 +55,7 @@ struct TileView: View {
                         
                         Rectangle()
                         
-                            .fill(viewModel.tileColorIteratedOnMonthDays(day: day, month: viewModel.currentMonth, year: viewModel.currentYear, context: context) == 0 ? .gray.opacity(0.3) : .green.opacity(viewModel.tileColorIteratedOnMonthDays(day: day, month: viewModel.currentMonth, year: viewModel.currentYear, context: context)))
+                            .fill(viewModel.tileColorOfDay(day: day, month: viewModel.currentMonth, year: viewModel.currentYear, context: context) == 0 ? .gray.opacity(0.3) : .green.opacity(viewModel.tileColorOfDay(day: day, month: viewModel.currentMonth, year: viewModel.currentYear, context: context) ?? 0.0))
                                                 
                                            
                             .frame(maxWidth: 40, maxHeight: 40)

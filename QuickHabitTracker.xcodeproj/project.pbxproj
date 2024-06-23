@@ -22,6 +22,8 @@
 		0D5E1CE22C0B1C360050830D /* HelperStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5E1CE12C0B1C360050830D /* HelperStructs.swift */; };
 		0D60E2FC2BF5F2E1009D8614 /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D60E2FB2BF5F2E1009D8614 /* HelperFunctions.swift */; };
 		0D60E2FF2BF6646D009D8614 /* UITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D60E2FE2BF6646D009D8614 /* UITest.swift */; };
+		0D63445B2C26D16300DC0960 /* RecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D63445A2C26D16300DC0960 /* RecordViewModel.swift */; };
+		0D63445D2C26D22100DC0960 /* DaysOfMonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D63445C2C26D22100DC0960 /* DaysOfMonthView.swift */; };
 		0D6381D52C119203007F8AB3 /* EditHabitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6381D42C119203007F8AB3 /* EditHabitView.swift */; };
 		0D6381D72C11B04A007F8AB3 /* UITestView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6381D62C11B04A007F8AB3 /* UITestView2.swift */; };
 		0D6658262C10E47D00337A9D /* HabitListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6658252C10E47D00337A9D /* HabitListView.swift */; };
@@ -90,6 +92,8 @@
 		0D5E1CE12C0B1C360050830D /* HelperStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperStructs.swift; sourceTree = "<group>"; };
 		0D60E2FB2BF5F2E1009D8614 /* HelperFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperFunctions.swift; sourceTree = "<group>"; };
 		0D60E2FE2BF6646D009D8614 /* UITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITest.swift; sourceTree = "<group>"; };
+		0D63445A2C26D16300DC0960 /* RecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewModel.swift; sourceTree = "<group>"; };
+		0D63445C2C26D22100DC0960 /* DaysOfMonthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysOfMonthView.swift; sourceTree = "<group>"; };
 		0D6381D42C119203007F8AB3 /* EditHabitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditHabitView.swift; sourceTree = "<group>"; };
 		0D6381D62C11B04A007F8AB3 /* UITestView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITestView2.swift; sourceTree = "<group>"; };
 		0D6658252C10E47D00337A9D /* HabitListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitListView.swift; sourceTree = "<group>"; };
@@ -141,15 +145,10 @@
 			isa = PBXGroup;
 			children = (
 				0D37075C2C05CB8100F3D9E3 /* ContentView.swift */,
-				0DF496A22BD977DA00AF0590 /* HomeView.swift */,
-				0DEDC2D22C008D510029C637 /* HabitListOnWeekdaysView.swift */,
-				0DA74FFC2BE76FBF0009B1DF /* MonthsOfYearView.swift */,
-				0D77714B2BEB6FCC00415574 /* RecordView.swift */,
-				0DA74FFA2BE6339A0009B1DF /* CreateHabitView.swift */,
+				0D63445E2C26D29600DC0960 /* Home Tab */,
+				0D63445F2C26D2B300DC0960 /* Weekly Plan Tab */,
+				0D6344602C26D2E000DC0960 /* Records Tab */,
 				0D37075A2C05AB8E00F3D9E3 /* SettingsView.swift */,
-				0D6658252C10E47D00337A9D /* HabitListView.swift */,
-				0D6381D42C119203007F8AB3 /* EditHabitView.swift */,
-				0D80C8F92C16F92B00B41EDC /* HomeView2.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -157,16 +156,62 @@
 		0D60E2FD2BF5F4A8009D8614 /* TempViews */ = {
 			isa = PBXGroup;
 			children = (
+				0DF496A22BD977DA00AF0590 /* HomeView.swift */,
 				0D50A24A2BF370E9007CA46D /* fetchBydateView.swift */,
 				0D50A2482BF35A6A007CA46D /* RecordListView.swift */,
 				0D60E2FE2BF6646D009D8614 /* UITest.swift */,
 				0D3E3B5A2C0C48630004D419 /* UITestView3.swift */,
-				0D79C5942C0CC3A500A0B1C6 /* TileView.swift */,
 				0D6381D62C11B04A007F8AB3 /* UITestView2.swift */,
-				0D1A71ED2C197F4000239F4C /* TileViewModel.swift */,
 				0D1A720B2C19974B00239F4C /* TileView2.swift */,
 			);
 			path = TempViews;
+			sourceTree = "<group>";
+		};
+		0D6344582C26D0E300DC0960 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				0D1A71ED2C197F4000239F4C /* TileViewModel.swift */,
+				0D63445A2C26D16300DC0960 /* RecordViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		0D6344592C26D10200DC0960 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0D66AD612BE2B215002AD8B0 /* CoreData */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		0D63445E2C26D29600DC0960 /* Home Tab */ = {
+			isa = PBXGroup;
+			children = (
+				0D80C8F92C16F92B00B41EDC /* HomeView2.swift */,
+				0D79C5942C0CC3A500A0B1C6 /* TileView.swift */,
+			);
+			path = "Home Tab";
+			sourceTree = "<group>";
+		};
+		0D63445F2C26D2B300DC0960 /* Weekly Plan Tab */ = {
+			isa = PBXGroup;
+			children = (
+				0DEDC2D22C008D510029C637 /* HabitListOnWeekdaysView.swift */,
+				0DA74FFA2BE6339A0009B1DF /* CreateHabitView.swift */,
+				0D6658252C10E47D00337A9D /* HabitListView.swift */,
+				0D6381D42C119203007F8AB3 /* EditHabitView.swift */,
+			);
+			path = "Weekly Plan Tab";
+			sourceTree = "<group>";
+		};
+		0D6344602C26D2E000DC0960 /* Records Tab */ = {
+			isa = PBXGroup;
+			children = (
+				0DA74FFC2BE76FBF0009B1DF /* MonthsOfYearView.swift */,
+				0D63445C2C26D22100DC0960 /* DaysOfMonthView.swift */,
+				0D77714B2BEB6FCC00415574 /* RecordView.swift */,
+			);
+			path = "Records Tab";
 			sourceTree = "<group>";
 		};
 		0D66AD612BE2B215002AD8B0 /* CoreData */ = {
@@ -208,8 +253,9 @@
 		0DF4969F2BD977DA00AF0590 /* QuickHabitTracker */ = {
 			isa = PBXGroup;
 			children = (
+				0D6344592C26D10200DC0960 /* Models */,
 				0D2C05FA2C047CED0088FE36 /* Views */,
-				0D66AD612BE2B215002AD8B0 /* CoreData */,
+				0D6344582C26D0E300DC0960 /* ViewModels */,
 				0DFBEA7C2C047DC30039B7B6 /* Helpers */,
 				0D60E2FD2BF5F4A8009D8614 /* TempViews */,
 				0DF496A42BD977DE00AF0590 /* Assets.xcassets */,
@@ -375,10 +421,12 @@
 				0D6658262C10E47D00337A9D /* HabitListView.swift in Sources */,
 				0D77714C2BEB6FCC00415574 /* RecordView.swift in Sources */,
 				0DF496A12BD977DA00AF0590 /* QuickHabitTrackerApp.swift in Sources */,
+				0D63445B2C26D16300DC0960 /* RecordViewModel.swift in Sources */,
 				0D5E1CE22C0B1C360050830D /* HelperStructs.swift in Sources */,
 				0D60E2FC2BF5F2E1009D8614 /* HelperFunctions.swift in Sources */,
 				0D490D872C099A5000CB8ACF /* Record+CoreDataClass.swift in Sources */,
 				0D80C8FA2C16F92B00B41EDC /* HomeView2.swift in Sources */,
+				0D63445D2C26D22100DC0960 /* DaysOfMonthView.swift in Sources */,
 				0D490D882C099A5000CB8ACF /* Record+CoreDataProperties.swift in Sources */,
 				0D6381D52C119203007F8AB3 /* EditHabitView.swift in Sources */,
 				0D0B4A8F2BF1389A00CC1CB7 /* Habit+CoreDataClass.swift in Sources */,
